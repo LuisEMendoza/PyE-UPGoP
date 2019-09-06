@@ -277,11 +277,11 @@ $$
 $$
 Podemos escribir el numerador de la expresión informalmente como $\sum x_i$, entendiendo que la suma incluye todas las observaciones muestrales.
 
-### Ejemplo
+#### Ejemplo
 Veamos el caso de un proceso de elaboración de calderas de acero. El metal se encuentra sometido a esfuerzo cáustico, el cual causa agrietamientos, cuya longitud se recogió en la siguiente lista:
 
 ```{r}
-grietas <- scan("datasets/007-caustic.txt")
+grietas <- scan("datasets/006-caustic.txt")
 grietas
 ```
 
@@ -314,15 +314,62 @@ R tiene la función ya predeterminada:
 mean(grietas)
 ```
 
-### Ejercicio
+#### Ejercicio
 
-Trabajemos ahora con otro conjunto de valores:
+Trabajemos ahora con un conjunto de valores más pequeño, donde se muestran los sueldos de doce recién egresados de una carrera de administración:
 ```{r}
-m <- scan("datasets/004-horno.txt")
+m <- scan("datasets/007-sueldos.txt")
 m
-stem(m)
 ```
 
 ```{r}
 mean(m)
 ```
+
+Es importante mencionar que si se está trabajando con toda una población, la fórmula es la misma, pero cambia la notación para denotar que incluye la población misma:
+
+$$
+\mu=\frac{\sum x_i}{N}
+$$
+
+### La mediana
+Es otra medida de localización central, aunque en este caso, es el valor que se encuentra literalmente en medio de todo el conjunto, previamente ordenado de menor a mayor. Si el tamaño muestral es impar, la mediana es el valor central. En caso contrario, la mediana se corresponde con el promedio de los dos valores centrales. Por ejemplo, supongamos el siguiente conjunto impar de datos:
+
+```{r}
+impar <- c(43,54,39,47,46,51,36)
+impar
+```
+
+Primero debemos organizarlo con la función `sort`:
+
+```{r}
+sort(impar)
+```
+
+El valor que se encuentra exactamente a la mitad del conjunto es $46$, por lo tanto, se corresponde con la mediana.
+
+_R_ cuenta con la función para obtener la mediana:
+
+```{r}
+median(impar)
+```
+
+Veamos ahora un conjunto par. Tomemos los sueldos de recién egresados que analizamos anteriormente y organicémoslo:
+
+```{r}
+sort(m)
+```
+
+Como podemos notar, los valores centrales son $3,490$ y $3,520$. La mediana se corresponde con la media de ambos valores:
+
+```{r}
+(3490+3520)/2
+```
+
+Comprobemos que así sea con _R_:
+
+```{r}
+median(m)
+```
+
+
