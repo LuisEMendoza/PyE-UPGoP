@@ -599,7 +599,12 @@ kscott</code></pre>
 <p><strong>Por fórmula</strong>. En este caso, prescindimos de estar buscando un número adecuado y lo calculamos directamente con la siguiente expresión:</p>
 <p><span class="math display">\[
 Anchura=\frac {R}{NC}
-\]</span> Donde <span class="math inline">\(R\)</span> es el rango (esto es, la diferencia entre el valor máximo y el mínimo) y <span class="math inline">\(NC\)</span> es el número de clases. Supongamos que queremos 9 clases, entonces:</p>
+\]</span> Donde <span class="math inline">\(R\)</span> es el rango (esto es, la diferencia entre el valor máximo y el mínimo) y <span class="math inline">\(NC\)</span> es el número de clases. Supongamos que queremos 9 clases, entonces encontremos el máximo y el mínimo:</p>
+<pre class="r"><code>max(Consumo)</code></pre>
+<pre><code>## [1] 18.26</code></pre>
+<pre class="r"><code>min(Consumo)</code></pre>
+<pre><code>## [1] 2.97</code></pre>
+<p>Y ahora calculamos la anchura:</p>
 <pre class="r"><code>anchura &lt;- (max(Consumo)-min(Consumo))/9
 anchura</code></pre>
 <pre><code>## [1] 1.698889</code></pre>
@@ -644,12 +649,72 @@ tabla</code></pre>
 ## 8 [16,18)    2
 ## 9 [18,20)    1</code></pre>
 <p>El histograma quedaría así:</p>
-<pre class="r"><code>hist(Consumo)</code></pre>
-<p><img src="U1_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre class="r"><code>hist(Consumo, right = FALSE)</code></pre>
+<p><img src="U1_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+<div id="histograma-con-anchos-de-clase-desiguales" class="section level3">
+<h3>Histograma con anchos de clase desiguales</h3>
+<p>Es posible que las clases de ancho-igual no sean una opción sensible si un conjunto de datos “se alarga” hacia un lado o el otro. Como ejemplo, veamos el siguiente caso:</p>
+<p>En un estudio de ruptura de la urdimbre durante el tejido de telas (Technometrics, 1982: 63), se sometieron a prueba 100 muestras de hilo. Se determinó el número de ciclos de esfuerzo hasta ruptura para cada muestra de hilo y se obtuvieron los datos siguientes:</p>
+<pre class="r"><code>hilos &lt;- scan(&quot;datasets/005-hilos.txt&quot;)
+hilos</code></pre>
+<pre><code>##   [1]  86 146 251 653  98 249 400 292 131 169 175 176  76 264  15 364 195
+##  [18] 262  88 264 157 220  42 321 180 198  38  20  61 121 282 224 149 180
+##  [35] 325 250 196  90 229 166  38 337  65 151 341  40  40 135 597 246 211
+##  [52] 180  93 315 353 571 124 279  81 186 497 182 423 185 229 400 338 290
+##  [69] 398  71 246 185 188 568  55  55  61 244  20 284 393 396 203 829 239
+##  [86] 236 286 194 277 143 198 264 105 203 124 137 135 350 193 188</code></pre>
+<p>Trazamos nuestro histograma:</p>
+<pre class="r"><code>hist(hilos, breaks = &#39;Sturges&#39;, right = FALSE)</code></pre>
+<p><img src="U1_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>Aquí podemos ver que el histograma se alarga demasiado hacia la derecha, mostrando clases con muy pocas observaciones. En este tipo de ocasiones, puede utilizar un histograma basado en densidades, más que en frecuencias. Ello implica obtener anchuras diferentes.</p>
+<pre class="r"><code>hist(hilos, breaks = c(0,50, 100,150, 200,400,600,900), right = FALSE)</code></pre>
+<p><img src="U1_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Después de determinar las frecuencias y las frecuencias relativas, se calcula la altura de cada rectángulo con la fórmula <span class="math display">\[
+altura=\frac{frecuencia\ relativa\ de\ clase}{ancho\ de\ clase}
+\]</span></p>
+<p>Las alturas del rectángulo resultante en general se conocen como densidades y la escala vertical es la escala de densidades. Esta prescripción también funcionará cuando los anchos de clase son iguales.</p>
+<pre class="r"><code>hist(hilos, breaks = c(0,50, 100,150, 200,400,900), right = FALSE)</code></pre>
+<p><img src="U1_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
 </div>
 <div id="medidas-de-tendencia" class="section level2">
 <h2>Medidas de tendencia</h2>
+<p>Los resúmenes visuales son bastante atractivos y deseables para obtener percepciones o nociones preliminares. Sin embargo, para un mejor análisis es mejor obtener un resumen basado en la interpretación de medidas numéricas. Suponga que un conjunto de observaciones de la forma <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_3\)</span>, donde cada <span class="math inline">\(x_i\)</span>, (la <span class="math inline">\(i\)</span> es solo un indicador o índice, es decir, no tiene valor numérico). ¿Qué es lo que nos importa saber de ellos?</p>
+<div id="la-media" class="section level3">
+<h3>La media</h3>
+<p>La medida más conocida y útil del centro es la <em>media</em> o promedio aritmético del conjunto. Si los números se denotan como <span class="math inline">\(x_i\)</span>, entonces la media se indica como <span class="math inline">\(\bar{x}\)</span>. Se calcula con la siguiente expresión:</p>
+<p><span class="math display">\[
+\bar{x}=\frac{x_1+x_2+ ... +x_n}{n}=\frac{\sum_{i=1}^n x_i}{n}
+\]</span> Podemos escribir el numerador de la expresión informalmente como <span class="math inline">\(\sum x_i\)</span>, entendiendo que la suma incluye todas las observaciones muestrales.</p>
+</div>
+<div id="ejemplo" class="section level3">
+<h3>Ejemplo</h3>
+<p>Veamos el caso de un proceso de elaboración de calderas de acero. El metal se encuentra sometido a esfuerzo cáustico, el cual causa agrietamientos, cuya longitud se recogió en la siguiente lista:</p>
+<pre class="r"><code>grietas &lt;- scan(&quot;datasets/007-caustic.txt&quot;)
+grietas</code></pre>
+<pre><code>##  [1] 16.1  9.6 24.9 20.4 12.7 21.2 30.2 25.8 18.5 10.3 25.3 14.0 27.1 45.0
+## [15] 23.3 24.2 14.6  8.9 32.4 11.8 28.5</code></pre>
+<p>Sumemos todos los valores de la lista, y enseguida dividamos entre el número de observaciones.</p>
+<p>Lo primero lo logramos con:</p>
+<pre class="r"><code>suma &lt;- sum(grietas)
+suma</code></pre>
+<pre><code>## [1] 444.8</code></pre>
+<p>El tamaño muestral se obtiene con:</p>
+<pre class="r"><code>observaciones &lt;- length(grietas)
+observaciones</code></pre>
+<pre><code>## [1] 21</code></pre>
+<p>Ahora sí, calculemos la media:</p>
+<pre class="r"><code>media &lt;- suma/observaciones
+media</code></pre>
+<pre><code>## [1] 21.18095</code></pre>
+<p>R tiene la función ya predeterminada:</p>
+<pre class="r"><code>mean(grietas)</code></pre>
+<pre><code>## [1] 21.18095</code></pre>
+</div>
+<div id="ejercicio" class="section level3">
+<h3>Ejercicio</h3>
+<p>Trabajemos ahora con otro conjunto de valores:</p>
 <pre class="r"><code>m &lt;- scan(&quot;datasets/004-horno.txt&quot;)
 m</code></pre>
 <pre><code>##  [1]  2.97  4.00  5.20  5.56  5.94  5.98  6.35  6.62  6.72  6.78  6.80
@@ -661,8 +726,22 @@ m</code></pre>
 ## [67] 11.70 12.16 12.19 12.28 12.31 12.62 12.69 12.71 12.91 12.92 13.11
 ## [78] 13.38 13.42 13.43 13.47 13.60 13.96 14.24 14.35 15.12 15.24 16.06
 ## [89] 16.90 18.26</code></pre>
+<pre class="r"><code>stem(m)</code></pre>
+<pre><code>## 
+##   The decimal point is at the |
+## 
+##    2 | 0
+##    4 | 0269
+##    6 | 046788992223667799
+##    8 | 03345566778134456688888
+##   10 | 002333444556011234677
+##   12 | 223367799144456
+##   14 | 02412
+##   16 | 19
+##   18 | 3</code></pre>
 <pre class="r"><code>mean(m)</code></pre>
 <pre><code>## [1] 10.03844</code></pre>
+</div>
 </div>
 
 
