@@ -12,7 +12,7 @@
       menu:
         - text: "Unidades"
         - text: "Encuadre"
-          href: Encuadre.html
+          href: encuadre.html
         - text: "Unidad 1"
           href: U1.html
         - text: "Unidad 2"
