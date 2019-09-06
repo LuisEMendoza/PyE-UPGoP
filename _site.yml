@@ -7,7 +7,7 @@
     - text: "¿Cómo utilizar estos apuntes?"
       href: Ayuda.html
     - text: "Git y GitHub en RStudio"
-      href: GitHub-en-RStudio.html
+      href: GitHub_en_RStudio.html
     - text: "Contenido" 
       menu:
         - text: "Unidades"
