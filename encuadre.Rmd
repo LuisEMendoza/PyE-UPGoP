@@ -1,0 +1,14 @@
+---
+title: "Encuadre"
+---
+
+## Probabilidad y Estadística
+
+__Objetivo de la asignatura__. El alumno será capaz de manejar las técnicas de estadística descriptiva e inferencial para organizar, representar y analizar datos obtenidos de situación simulada y/o real.
+
+### Contenido
+1. __Estadística Descriptiva__.
+2. __Elementos de probabilidad__.
+3. __Variables aleatorias discretas y continuas__.
+4. __Pruebas de hipótesis__.
+5. __Estimación de parámetros__.
