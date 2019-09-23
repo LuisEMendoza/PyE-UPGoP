@@ -1,5 +1,9 @@
 ---
 title: "Estadística Descriptiva"
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 Los métodos estadísticos son muy importantes, ya que ellos nos permiten conocer los fenómenos que nos rodean, en aspectos que quizá no nos imaginamos. Por doquier estamos expuestos a los __datos__, y eso se extiende a científicos e ingenieros en sus actividades profesionales.  
@@ -12,7 +16,7 @@ A las características podemos dividirlas en dos: __categóricas__ y __numérica
 Dividiremos la Estadística en dos ramas por el momento. En primera instancia, es necesario recopilar, organizar, resumir y presentar los datos; de esto se encarga la __Estadística Descriptiva__. Por otro lado, se desea extender las propiedades de la muestra hacia la población, mediante inferencias que permitan comprender mejor su comportamiento e incluso pronosticarlo; esa es la función de la __Estadística Inferencial__.
 
 ## Estadística Descriptiva en acción
-La tragedia que sufrió el transbordador espacial Challenger y sus astronautas en 1986 condujo a varios estudios para investigar las razones de la falla de la misión. La atención se enfocó de inmediato en el comportamiento de los sellos anulares del motor del cohete. He aquí datos derivados de observaciones en x = temperatura del sello anular (°F) en cada encendido de prueba o lanzamiento del motor del cohete del transbordador (Presidential Commission on the Space Shuttle Challenger Accident, Vol. 1, 1986: 129-131). Los datos se presentan en una sola columna para dejar en claro que se refieren a datos univariables. Cabe mencionar que los datos se encuentran en la carpeta _datasets_ del repositorio de la asignatura en [GitHub](https://github.com/LuisEMendoza/RMarkdown-test/tree/master/datasets).
+La tragedia que sufrió el transbordador espacial Challenger y sus astronautas en 1986 condujo a varios estudios para investigar las razones de la falla de la misión. La atención se enfocó de inmediato en el comportamiento de los sellos anulares del motor del cohete. He aquí datos derivados de observaciones en x = temperatura del sello anular (°F) en cada encendido de prueba o lanzamiento del motor del cohete del transbordador (Presidential Commission on the Space Shuttle Challenger Accident, Vol. 1, 1986: 129-131). Los datos se presentan en una sola columna para dejar en claro que se refieren a datos univariables. Cabe mencionar que los datos se encuentran en la carpeta _datasets_ del repositorio de la asignatura en [GitHub](https://github.com/LuisEMendoza/PyE-UVM/tree/master/datasets).
 
 ```{r echo=FALSE}
 temp <- scan("datasets/001-challenger.txt")
@@ -64,9 +68,11 @@ Una gráfica de tallos y hojas da información sobre los siguientes aspectos de 
 A modo de práctica, tomemos los siguientes valores que representan el flujo de agua en regaderas de Australia en litros por minuto, para _n = 130_. Se muestra también el código en _R_ para mostrar y calcular el diagrama:
 
 ```{r}
-flujo <- scan("datasets/002-flujo.txt")
+flujo <- scan("datasets/002-flujo.txt") 
 flujo
 ```
+
+> Si en un momento dado no sabemos exactamente dónde se encuentra el archivo fuente de nuestros datos, podemos utilizar el código `flujo <- scan(file.choose())`. Este nos abrirá una ventana que nos permitirá elegir el archivo de manera normal.
 
 Construyamos nuestro diagrama:
 
@@ -266,6 +272,7 @@ Las alturas del rectángulo resultante en general se conocen como densidades y l
 hist(hilos, breaks = c(0,50, 100,150, 200,400,900), right = FALSE)
 ```
 
+
 ## Medidas de tendencia
 Los resúmenes visuales son bastante atractivos y deseables para obtener percepciones o nociones preliminares. Sin embargo, para un mejor análisis es mejor obtener un resumen basado en la interpretación de medidas numéricas. Suponga que un conjunto de observaciones de la forma $x_1$, $x_2$, $x_3$, donde cada $x_i$, (la $i$ es solo un indicador o índice, es decir, no tiene valor numérico). ¿Qué es lo que nos importa saber de ellos?
 
@@ -281,7 +288,7 @@ Podemos escribir el numerador de la expresión informalmente como $\sum x_i$, en
 Veamos el caso de un proceso de elaboración de calderas de acero. El metal se encuentra sometido a esfuerzo cáustico, el cual causa agrietamientos, cuya longitud se recogió en la siguiente lista:
 
 ```{r}
-grietas <- scan("datasets/006-caustic.txt")
+grietas <- scan("datasets/007-caustic.txt")
 grietas
 ```
 
@@ -316,64 +323,236 @@ mean(grietas)
 
 #### Ejercicio
 
-Trabajemos ahora con un conjunto de valores más pequeño, donde se muestran los sueldos de doce recién egresados de una carrera de administración:
+Trabajemos ahora con otro conjunto de valores:
+
 ```{r}
-m <- scan("datasets/007-sueldos.txt")
+m <- scan("datasets/004-horno.txt")
 m
+stem(m)
 ```
 
 ```{r}
 mean(m)
 ```
 
-Es importante mencionar que si se está trabajando con toda una población, la fórmula es la misma, pero cambia la notación para denotar que incluye la población misma:
 
-$$
-\mu=\frac{\sum x_i}{N}
-$$
+Por lo anterior, podemos entender la media como una especie de balanza o punto de apoyo que nos permite equilibrar los pesos (las observaciones) en un eje horizontal. Ahora bien, este concepto tiene un gran problema: es muy sensible a valores extremos. Por ejemplo, consideremos el conjunto de temperaturas del _Challenger_:
+
+```{r}
+temp <- scan("datasets/001-challenger.txt")
+temp
+```
+
+Como ya habíamos visto, la media resultaba ser:
+
+```{r}
+mean(temp)
+```
+
+Pero si agregamos un dato muy _extraño_ o no esperado, aún más que el propio 31, como por ejemplo un catastrófico 350:
+
+```{r}
+n.media <- (sum(temp)+350)/(length(temp)+1)
+n.media
+```
+
+Nuestra media se recorre demasiado hacia la derecha del conjunto, muy cerca del final de los datos, con el afán de «equilibrarlos». Cuando se trabaja con observaciones que pueden tener muchos datos extremos, es recomendable no elegir la media para representar su tendencia. En su lugar, se recomienda la __mediana__.
+
 
 ### La mediana
-Es otra medida de localización central, aunque en este caso, es el valor que se encuentra literalmente en medio de todo el conjunto, previamente ordenado de menor a mayor. Si el tamaño muestral es impar, la mediana es el valor central. En caso contrario, la mediana se corresponde con el promedio de los dos valores centrales. Por ejemplo, supongamos el siguiente conjunto impar de datos:
+La mediana es una medida de tendencia que literalmente, parte al conjunto de observaciones (previamente ordenadas de menor a mayor) por la mitad. Es decir, es el valor de en medio. Se denota por $\tilde x$. La mediana se obtiene de dos maneras, dependiendo del número de observaciones $n$.
+
+> Si el número de observaciones es impar, la mediana es el valor que se encuentra en la siguiente posición:
+
+$$
+\tilde x=valor\ en\ el\ lugar\  \#  \frac{n+1}{2} \ ordenado
+$$
+
+>Si es par, debemos localizar los dos valores centrales y calcular su media; el resultado es la mediana.
+
+$$
+\tilde x=promedio\ de\ los \ valores\   \#  \frac{n}{2}\ y\ el\ \# \frac{n}{2}+1 \ ordenados
+$$
+
+#### Ejemplo 1
+El riesgo de desarrollar deficiencia de hierro es especialmente alto durante el embarazo. El problema con la detección de tal deficiencia es que algunos métodos para determinar el estado del hierro pueden ser afectados por el estado de gravidez mismo. Considérense las siguientes observaciones de concentración de receptores de transferrina de una muestra de mujeres con evidencia de laboratorio de anemia por deficiencia de hierro evidente (“Serum Transferrin Receptor for the Detection of Iron Deficiency in Pregnancy”, Amer. J. of Clinical Nutrition, 1991: 1077-1081):
 
 ```{r}
-impar <- c(43,54,39,47,46,51,36)
-impar
+Fe <- scan("datasets/008-hierro.txt")
+Fe
 ```
 
-Primero debemos organizarlo con la función `sort`:
+Lo primero que debemos hacer es ordenar los datos de menor a mayor. Lo conseguimos en _R_ con lo siguiente:
 
 ```{r}
-sort(impar)
+orden <- sort(Fe)
+orden
 ```
 
-El valor que se encuentra exactamente a la mitad del conjunto es $46$, por lo tanto, se corresponde con la mediana.
-
-_R_ cuenta con la función para obtener la mediana:
+Ahora contamos el total de observaciones:
+```{r}
+n <- length(orden)
+n
+```
+Tenemos un conjunto par de observaciones, así que obtengamos los números que ocupan las posiciones centrales. Primero, el primero:
 
 ```{r}
-median(impar)
+n1 <-orden[n/2]
+n1
 ```
 
-Veamos ahora un conjunto par. Tomemos los sueldos de recién egresados que analizamos anteriormente y organicémoslo:
+Y ahora el segundo:
+```{r}
+n2 <- orden[(n/2)+1]
+n2
+```
+
+Calculemos su media:
 
 ```{r}
-sort(m)
+mediana1 <- (n1+n2)/2
+mediana1
 ```
 
-Como podemos notar, los valores centrales son $3,490$ y $3,520$. La mediana se corresponde con la media de ambos valores:
+#### Ejemplo 2
+
+La exposición a productos microbianos, especialmente endotoxina, puede tener un impacto en la vulnerabilidad a enfermedades alérgicas. El artículo (“_Dust Sampling Methods for Endotoxin-An Essential, But Underestimated Issue_”, Indoor Air, 2006: 20-27) consideró temas asociados con la determinación de concentración de endotoxina. Se obtuvieron dos tipos de muestra para datos sobre concentración (EU/mg) en polvo asentado: hogares urbanos (U) y otra de casas campestres (C), las cuales fueron amablemente suministrados por los autores del artículo citado.
+
+A continuación se muestra la muestra urbana:
 
 ```{r}
-(3490+3520)/2
+u <- scan("datasets/009-toxinas-U.txt")
+u
+```
+Obtenemos el tamaño muestral:
+```{r}
+tamano <- length(u)
+tamano
 ```
 
-Comprobemos que así sea con _R_:
+En este caso tenemos un tamaño muestral impar, así que resulta más sencillo obtener la mediana. Ordenamos la muestra y enseguida obtenemos la posición del número central. La lista ordenada:
 
 ```{r}
-median(m)
+u.ordenada <- sort(u)
+u.ordenada
 ```
 
+La posición del valor central:
+```{r}
+mediana2 <- u.ordenada[(tamano+1)/2]
+mediana2
+```
 
-## Gráficas de caja
+Este es el valor de la mediana. Hasta ahora hemos estado utilizando comandos aritméticos para determinarla, sin embargo, existe un comando único en _R_ para obtenerla. Para el primer conjunto de valores:
+
+```{r}
+median(Fe)
+```
+
+Para el segundo:
+
+```{r}
+median(u)
+```
+La media $\mu$ y la mediana $\tilde \mu$ poblacionales en general no serán idénticas. Si la distribución de la población es positiva o negativamente asimétrica, entonces $\mu \neq \tilde \mu$. Cuando éste es el caso, al hacer inferencias primero se debe decidir cuál de las dos características de la población es de mayor interés y luego proceder como corresponda.
+
+![Solo en distribuciones normales simétricas](images/018-median.jpg)
+
+La mediana también puede calcularse con la función `quantile`, ya que a final de cuentas, es el segundo cuartil:
+
+```{r}
+quantile(u, probs = 0.5)
+```
+
+Podemos calcular cualquier cuantil (también conocido como percentil), siendo los más comunes los cuartiles:
+
+```{r}
+quantile(u, probs = 0.25)
+quantile(u, probs = 0.75)
+quantile(u, probs = 0.20)
+```
+
+Los cuartiles dividen el conjunto de datos precisamente en cuartas partes. Como puede deducirse de lo anterior, el primer cuartil toma solo el primer 25% de las observaciones, dejando libre el restante 75%. El tercer cuartil hace lo mismo pero a la inversa: toma el 25% superior y deja libres los primeros datos, correspondiendo al 75% inferior.
+
+## Medidas de dispersión
+En ocasiones queremos saber qué tan dispersos se encuentran los valores de una muestra entre sí o con respecto a la media. Para ello utilizamos las medidas de dispersión. Usualmente son tres: el __rango__, la __varianza__ y la __desviación estándar__. 
+
+### El rango
+Considera solo la diferencia entre el valor máximo y el mínimo, por lo que no toma en cuenta los valores intermedios:
+
+```{r}
+u
+rango <- max(u) - min(u)
+```
+
+```{r}
+rango
+```
+
+### La varianza
+Su fórmula es la siguiente:
+
+$$
+s^2=\frac{\sum_{i=1}^n (x_i-\bar x)^2}{n-1}
+$$
+
+Y su obtención se consigue con:
+
+```{r}
+var(u)
+```
+
+### La desviación estándar
+No es más que la raíz cuadrada de la varianza. Se obtiene directamente con:
+
+```{r}
+sd(u)
+```
+
+#### Ejercicio
+
+La cantidad de luz reflejada por las hojas ha sido utilizada para varios propósitos, incluidas la evaluación del color del césped, la estimación del estado del nitrógeno y la medición de la biomasa. El artículo (“_Leaf Reflectance-Nitrogen-Chlorophyll Relations in Buffel-Grass_”, Photogrammetric Engr. and Remote Sensing, 1985: 463-466) dio las siguientes observaciones obtenidas por medio de espectrofotogrametría, de la reflexión de las hojas en condiciones experimentales.
+
+```{r}
+hojas <- read.table("datasets/011-hojas.txt", header = T)
+hojas
+```
+
+> Nótese que para capturar un archivo que no consta de una sola columna, en R podemos utilizar la función `read.table` con la función `header = TRUE`. Para _llamar_ una sola columna podemos utilizar la nomenclatura `nombredelatabla$nombredelacolumna`, o bien `nombredelacolumna[,númerodecolumna]`.
+
+La idea es calcular la varianza de las observaciones. Para ello debemos invocar solamente la columna que nos interesa, que es la que contiene los datos como tales: 
+
+```{r}
+datos <- hojas$xi
+datos
+```
+
+```{r}
+datos2 <- hojas[,2]
+datos2
+```
+
+Calculemos la varianza de dicha columna:
+
+```{r}
+var(datos)
+```
+
+> Podemos calcular directamente sobre la columna:
+
+```{r}
+var(hojas[,2])
+```
+
+Calculemos ahora la desviación estándar:
+
+```{r}
+sd(hojas[,2])
+```
+
+## Medidas de forma
+
+### Gráficas de caja
 Un gráfico que ha demostrado ser muy útil en la representación efectiva de los datos es precisamente el diagrama de caja. Este se construye a partir de medidas que son _resistentes_ a los datos extremos, es decir, la mediana y los cuartiles. Las características que nos muestra el gráfico son el centro, la dispersión, la asimetría y la presencia -o ausencia- de observaciones extremas. Para ello es necesario encontrar los siguientes números: 
 - Observaciones más pequeñas
 - Primer cuartil
@@ -413,7 +592,7 @@ Trazamos un eje (puede ser horizontal o vertical) con la escala adecuada, en est
 boxplot(us)
 ```
 
-### Presencia de datos extremos
+### Gráficas de caja con datos atípicos
 La presencia de datos extremos puede ser contraproducente. Por lo tanto no es deseable tomarlos en cuenta si se quiere asumir que la distribución de los datos es _normal_. Por ello, debemos indicar explícitamente la presencia de datos atípicos, de los cuales podemos distinguir entre moderados y extremos. Para esto, debemos calcular el rango intercuartílico ($f_s$) y multiplicarlo por $1.5$. Cualquier dato que se encuentre a más de $1.5f_s$ del extremo de la caja se considera atípico o apartado. De entre estos valores apartados, asumiremos que todos son moderados con excepción de los que se encuentren a más de $3f_s$ del cuartil más cercano.
 
 #### Ejercicio con datos apartados
@@ -490,7 +669,7 @@ Los problemas visuales y musculoesqueléticos asociados con el uso de terminales
 
 ```{r}
 osa <- read.table("datasets/014-osa.txt", header = T)
-head(osa)
+(osa)
 ```
 
 El conjunto de datos completo se encuentra en la carpeta _datasets_ en la página de la asignatura en [GitHub](https://github.com/LuisEMendoza/PyE-UVM/tree/master/datasets). Ahora bien, procedamos a trazar el gráfico:
@@ -518,15 +697,15 @@ plot(ancho,area)
 abline(r1)
 ```
 
-Aquí se observa precisamente lo que se mencionaba nateriormente, la distancia que existe entre cada punto y la línea que representa la relación lineal entre ambas variables. Veamos otro caso:
+Aquí se observa precisamente lo que se mencionaba nateriormente, la distancia que existe entre cada punto y la línea que representa la relación lineal entre ambas variables:
 
 ### Método de mínimos cuadrados
 
 Se remite a los tiempos del matemático alemán __Gauss__, y consiste de las siguientes fórmulas para la obtención de la ecuación de regresión:
 
 $$
-b_1=\frac{\sum x_iy_i-\frac{\sum x_i\sum y_i}{n}}{\sum x_i^2-\frac{(\sum x_i)^2}{n}} \\ \ \\
-
+b_1=\frac{\sum x_iy_i-\frac{\sum x_i\sum y_i}{n}}{\sum x_i^2-\frac{(\sum x_i)^2}{n}} \\
+\ \\
 b_0=\bar y-b_1 \bar x
 $$
 
@@ -658,6 +837,13 @@ $$
 
 Con lo anterior, se estima que el cambio de porosidad esperado asociado con un incremento de una unidad en el peso unitario es de $\approx -0.905%$ (una reducción de 0.905%). La figura siguiente, muestra que la línea de mínimos cuadrados proporciona un excelente resumen de la relación entre las dos variables.
 
+```{r}
+r2 <- lm(porosidad~peso)
+plot(peso, porosidad)
+abline(r2)
+```
+
+
 Todo lo anterior puede ser conseguido con una sola línea de código en _R_:
 
 ```{r}
@@ -665,6 +851,34 @@ rl <- lm(porosidad~peso)
 rl
 ```
 
+Aquí podemos observar que `Intercept` es nuestro coeficiente $b_0$ y `peso` se corresponde con $b_1$. El siguiente paso es obtener el valor pronosticado de $y$ para un determinado valor de $x$. Para ello sustituimos en nuestra ecuación de regresión un peso de _109_ y resolvemos para $y$:
 
+```{r}
+118.9099 - 0.9047*109
+```
 
+Lo anterior implica que para un peso de 109, la porosidad esperada sería de 20.2976. Podemos sustituir tantos valores de $x$ como queramos, pero no se recomienda que sean muy diferentes a los que se encuentran originalmente en la tabla de datos. 
 
+### Coeficiente de determinación
+Mientras el valor de $b_1$ nos indica si la relación entre las dos variables es positiva, no tenemos de momento una medida que nos cuantifique qué tan fuerte es dicha relación. Para ello contamos con el coeficiente de determinación, el cual podemos obtenr a partir del coeficiente de correlación, fácil de calcular en _R_:
+
+```{r}
+coef.cor <- cor(peso, porosidad)
+coef.cor
+```
+
+Este coeficiente nos indica la naturaleza de la relación. Al tener signo negativo, nos confirma lo que $b_1$ ya mostró: relación negativa. Pero aún no nos indica qué tan fuerte es dicha relación. Para ello calculamos el cuadrado de dicho coeficiente:
+
+```{r}
+coef.cor^2
+```
+
+La relación es bastante alta, ya que el coeficiente de determinación oscila en un rango muy pequeño, de cero a uno. Mientras más se acerque al uno, más exitoso es nuestro modelo explicando la naturaleza de lo que estamos estudiando. Convertido en porcentaje, nos indica que $x$ explica el 97.39% de la variación de $y$; o lo que es lo mismo, el 97.39% de la variación en la porosidad es explicada por el peso.
+
+El coeficiente de determinación también puede ser obtenido mediante la sentencia:
+
+```{r}
+summary(rl)
+```
+
+Con la cual, bajo el nombre de _R-squared_, aparece nuestro valor ya obtenido. Es importante notar que aparecen dos de estos. El primero (_Multiple..._) es el que tomamos para modelos que solo contengan una variable dependiente y otra independiente. El segundo (_Ajusted..._) es útil para modelos multivariables.
