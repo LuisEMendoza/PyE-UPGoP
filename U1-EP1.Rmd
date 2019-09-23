@@ -100,7 +100,8 @@ d. Trace la gráfica de caja para este problema.
 
 
 Vuelva al conjunto de datos del problema 5.
-a) Elabore un diagrama de dispersión que muestre la relación entre las dos variables, tempera-
+
+a. Elabore un diagrama de dispersión que muestre la relación entre las dos variables, tempera
 tura más alta y temperatura más baja.
 
  
