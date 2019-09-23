@@ -20,6 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -248,6 +251,63 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -255,6 +315,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -336,7 +406,7 @@ A las características podemos dividirlas en dos: <strong>categóricas</strong> 
 </div>
 <div id="estadistica-descriptiva-en-accion" class="section level2">
 <h2>Estadística Descriptiva en acción</h2>
-<p>La tragedia que sufrió el transbordador espacial Challenger y sus astronautas en 1986 condujo a varios estudios para investigar las razones de la falla de la misión. La atención se enfocó de inmediato en el comportamiento de los sellos anulares del motor del cohete. He aquí datos derivados de observaciones en x = temperatura del sello anular (°F) en cada encendido de prueba o lanzamiento del motor del cohete del transbordador (Presidential Commission on the Space Shuttle Challenger Accident, Vol. 1, 1986: 129-131). Los datos se presentan en una sola columna para dejar en claro que se refieren a datos univariables. Cabe mencionar que los datos se encuentran en la carpeta <em>datasets</em> del repositorio de la asignatura en <a href="https://github.com/LuisEMendoza/RMarkdown-test/tree/master/datasets">GitHub</a>.</p>
+<p>La tragedia que sufrió el transbordador espacial Challenger y sus astronautas en 1986 condujo a varios estudios para investigar las razones de la falla de la misión. La atención se enfocó de inmediato en el comportamiento de los sellos anulares del motor del cohete. He aquí datos derivados de observaciones en x = temperatura del sello anular (°F) en cada encendido de prueba o lanzamiento del motor del cohete del transbordador (Presidential Commission on the Space Shuttle Challenger Accident, Vol. 1, 1986: 129-131). Los datos se presentan en una sola columna para dejar en claro que se refieren a datos univariables. Cabe mencionar que los datos se encuentran en la carpeta <em>datasets</em> del repositorio de la asignatura en <a href="https://github.com/LuisEMendoza/PyE-UVM/tree/master/datasets">GitHub</a>.</p>
 <pre><code>##  [1] 84 49 61 40 83 67 45 66 70 69 80 58 68 60 67 72 73 70 57 63 70 78 52
 ## [24] 67 53 67 75 61 70 81 76 79 75 76 58 31</code></pre>
 <p>A simple vista, los datos así mostrados no dicen gran cosa. Para ello es deseable organizarlos de manera que muestren algún comportamiento en particular. Una de las maneras más burdas es el <strong>diagrama de tallo y hojas</strong>, el cual se muestra a continuación:</p>
@@ -370,7 +440,7 @@ A las características podemos dividirlas en dos: <strong>categóricas</strong> 
 </ol>
 <p>Una gráfica de tallos y hojas da información sobre los siguientes aspectos de los datos: - Identificación de un valor típico o representativo. - Grado de dispersión en torno al valor típico. - Presencia de brechas en los datos. - Grado de simetría en la distribución de los valores. - Número y localización de crestas. - Presencia de valores afuera de la gráfica.</p>
 <p>A modo de práctica, tomemos los siguientes valores que representan el flujo de agua en regaderas de Australia en litros por minuto, para <em>n = 130</em>. Se muestra también el código en <em>R</em> para mostrar y calcular el diagrama:</p>
-<pre class="r"><code>flujo &lt;- scan(&quot;datasets/002-flujo.txt&quot;)
+<pre class="r"><code>flujo &lt;- scan(&quot;datasets/002-flujo.txt&quot;) 
 flujo</code></pre>
 <pre><code>##   [1]  4.6 12.3  7.1  7.0  4.0  9.2  6.7  6.9 11.5  5.1 11.2 10.5 14.3  8.0
 ##  [15]  8.8  6.4  5.1  5.6  9.6  7.5  7.5  6.2  5.8  2.3  3.4 10.4  9.8  6.6
@@ -382,6 +452,9 @@ flujo</code></pre>
 ##  [99] 15.0  9.6  7.8  7.0  6.9  4.1  3.6 11.9  3.7  5.7  6.8 11.3  9.3  9.6
 ## [113] 10.4  9.3  6.9  9.8  9.1 10.6  4.5  6.2  8.3  3.2  4.9  5.0  6.0  8.2
 ## [127]  6.3  3.8  6.0  8.3</code></pre>
+<blockquote>
+<p>Si en un momento dado no sabemos exactamente dónde se encuentra el archivo fuente de nuestros datos, podemos utilizar el código <code>flujo &lt;- scan(file.choose())</code>. Este nos abrirá una ventana que nos permitirá elegir el archivo de manera normal.</p>
+</blockquote>
 <p>Construyamos nuestro diagrama:</p>
 <pre class="r"><code>stem(flujo)</code></pre>
 <pre><code>## 
@@ -690,7 +763,7 @@ altura=\frac{frecuencia\ relativa\ de\ clase}{ancho\ de\ clase}
 <div id="ejemplo" class="section level4">
 <h4>Ejemplo</h4>
 <p>Veamos el caso de un proceso de elaboración de calderas de acero. El metal se encuentra sometido a esfuerzo cáustico, el cual causa agrietamientos, cuya longitud se recogió en la siguiente lista:</p>
-<pre class="r"><code>grietas &lt;- scan(&quot;datasets/006-caustic.txt&quot;)
+<pre class="r"><code>grietas &lt;- scan(&quot;datasets/007-caustic.txt&quot;)
 grietas</code></pre>
 <pre><code>##  [1] 16.1  9.6 24.9 20.4 12.7 21.2 30.2 25.8 18.5 10.3 25.3 14.0 27.1 45.0
 ## [15] 23.3 24.2 14.6  8.9 32.4 11.8 28.5</code></pre>
@@ -713,47 +786,219 @@ media</code></pre>
 </div>
 <div id="ejercicio" class="section level4">
 <h4>Ejercicio</h4>
-<p>Trabajemos ahora con un conjunto de valores más pequeño, donde se muestran los sueldos de doce recién egresados de una carrera de administración:</p>
-<pre class="r"><code>m &lt;- scan(&quot;datasets/007-sueldos.txt&quot;)
+<p>Trabajemos ahora con otro conjunto de valores:</p>
+<pre class="r"><code>m &lt;- scan(&quot;datasets/004-horno.txt&quot;)
 m</code></pre>
-<pre><code>##  [1] 3450 3550 3650 3480 3355 3310 3490 3730 3540 3925 3520 3480</code></pre>
+<pre><code>##  [1]  2.97  4.00  5.20  5.56  5.94  5.98  6.35  6.62  6.72  6.78  6.80
+## [12]  6.85  6.94  7.15  7.16  7.23  7.29  7.62  7.62  7.69  7.73  7.87
+## [23]  7.93  8.00  8.26  8.29  8.37  8.47  8.54  8.58  8.61  8.67  8.69
+## [34]  8.81  9.07  9.27  9.37  9.43  9.52  9.58  9.60  9.76  9.82  9.83
+## [45]  9.83  9.84  9.96 10.04 10.21 10.28 10.28 10.30 10.35 10.36 10.40
+## [56] 10.49 10.50 10.64 10.95 11.09 11.12 11.21 11.29 11.43 11.62 11.70
+## [67] 11.70 12.16 12.19 12.28 12.31 12.62 12.69 12.71 12.91 12.92 13.11
+## [78] 13.38 13.42 13.43 13.47 13.60 13.96 14.24 14.35 15.12 15.24 16.06
+## [89] 16.90 18.26</code></pre>
+<pre class="r"><code>stem(m)</code></pre>
+<pre><code>## 
+##   The decimal point is at the |
+## 
+##    2 | 0
+##    4 | 0269
+##    6 | 046788992223667799
+##    8 | 03345566778134456688888
+##   10 | 002333444556011234677
+##   12 | 223367799144456
+##   14 | 02412
+##   16 | 19
+##   18 | 3</code></pre>
 <pre class="r"><code>mean(m)</code></pre>
-<pre><code>## [1] 3540</code></pre>
-<p>Es importante mencionar que si se está trabajando con toda una población, la fórmula es la misma, pero cambia la notación para denotar que incluye la población misma:</p>
-<p><span class="math display">\[
-\mu=\frac{\sum x_i}{N}
-\]</span></p>
+<pre><code>## [1] 10.03844</code></pre>
+<p>Por lo anterior, podemos entender la media como una especie de balanza o punto de apoyo que nos permite equilibrar los pesos (las observaciones) en un eje horizontal. Ahora bien, este concepto tiene un gran problema: es muy sensible a valores extremos. Por ejemplo, consideremos el conjunto de temperaturas del <em>Challenger</em>:</p>
+<pre class="r"><code>temp &lt;- scan(&quot;datasets/001-challenger.txt&quot;)
+temp</code></pre>
+<pre><code>##  [1] 84 49 61 40 83 67 45 66 70 69 80 58 68 60 67 72 73 70 57 63 70 78 52
+## [24] 67 53 67 75 61 70 81 76 79 75 76 58 31</code></pre>
+<p>Como ya habíamos visto, la media resultaba ser:</p>
+<pre class="r"><code>mean(temp)</code></pre>
+<pre><code>## [1] 65.86111</code></pre>
+<p>Pero si agregamos un dato muy <em>extraño</em> o no esperado, aún más que el propio 31, como por ejemplo un catastrófico 350:</p>
+<pre class="r"><code>n.media &lt;- (sum(temp)+350)/(length(temp)+1)
+n.media</code></pre>
+<pre><code>## [1] 73.54054</code></pre>
+<p>Nuestra media se recorre demasiado hacia la derecha del conjunto, muy cerca del final de los datos, con el afán de «equilibrarlos». Cuando se trabaja con observaciones que pueden tener muchos datos extremos, es recomendable no elegir la media para representar su tendencia. En su lugar, se recomienda la <strong>mediana</strong>.</p>
 </div>
 </div>
 <div id="la-mediana" class="section level3">
 <h3>La mediana</h3>
-<p>Es otra medida de localización central, aunque en este caso, es el valor que se encuentra literalmente en medio de todo el conjunto, previamente ordenado de menor a mayor. Si el tamaño muestral es impar, la mediana es el valor central. En caso contrario, la mediana se corresponde con el promedio de los dos valores centrales. Por ejemplo, supongamos el siguiente conjunto impar de datos:</p>
-<pre class="r"><code>impar &lt;- c(43,54,39,47,46,51,36)
-impar</code></pre>
-<pre><code>## [1] 43 54 39 47 46 51 36</code></pre>
-<p>Primero debemos organizarlo con la función <code>sort</code>:</p>
-<pre class="r"><code>sort(impar)</code></pre>
-<pre><code>## [1] 36 39 43 46 47 51 54</code></pre>
-<p>El valor que se encuentra exactamente a la mitad del conjunto es <span class="math inline">\(46\)</span>, por lo tanto, se corresponde con la mediana.</p>
-<p><em>R</em> cuenta con la función para obtener la mediana:</p>
-<pre class="r"><code>median(impar)</code></pre>
-<pre><code>## [1] 46</code></pre>
-<p>Veamos ahora un conjunto par. Tomemos los sueldos de recién egresados que analizamos anteriormente y organicémoslo:</p>
-<pre class="r"><code>sort(m)</code></pre>
-<pre><code>##  [1] 3310 3355 3450 3480 3480 3490 3520 3540 3550 3650 3730 3925</code></pre>
-<p>Como podemos notar, los valores centrales son <span class="math inline">\(3,490\)</span> y <span class="math inline">\(3,520\)</span>. La mediana se corresponde con la media de ambos valores:</p>
-<pre class="r"><code>(3490+3520)/2</code></pre>
-<pre><code>## [1] 3505</code></pre>
-<p>Comprobemos que así sea con <em>R</em>:</p>
-<pre class="r"><code>median(m)</code></pre>
-<pre><code>## [1] 3505</code></pre>
+<p>La mediana es una medida de tendencia que literalmente, parte al conjunto de observaciones (previamente ordenadas de menor a mayor) por la mitad. Es decir, es el valor de en medio. Se denota por <span class="math inline">\(\tilde x\)</span>. La mediana se obtiene de dos maneras, dependiendo del número de observaciones <span class="math inline">\(n\)</span>.</p>
+<blockquote>
+<p>Si el número de observaciones es impar, la mediana es el valor que se encuentra en la siguiente posición:</p>
+</blockquote>
+<p><span class="math display">\[
+\tilde x=valor\ en\ el\ lugar\  \#  \frac{n+1}{2} \ ordenado
+\]</span></p>
+<blockquote>
+<p>Si es par, debemos localizar los dos valores centrales y calcular su media; el resultado es la mediana.</p>
+</blockquote>
+<p><span class="math display">\[
+\tilde x=promedio\ de\ los \ valores\   \#  \frac{n}{2}\ y\ el\ \# \frac{n}{2}+1 \ ordenados
+\]</span></p>
+<div id="ejemplo-1" class="section level4">
+<h4>Ejemplo 1</h4>
+<p>El riesgo de desarrollar deficiencia de hierro es especialmente alto durante el embarazo. El problema con la detección de tal deficiencia es que algunos métodos para determinar el estado del hierro pueden ser afectados por el estado de gravidez mismo. Considérense las siguientes observaciones de concentración de receptores de transferrina de una muestra de mujeres con evidencia de laboratorio de anemia por deficiencia de hierro evidente (“Serum Transferrin Receptor for the Detection of Iron Deficiency in Pregnancy”, Amer. J. of Clinical Nutrition, 1991: 1077-1081):</p>
+<pre class="r"><code>Fe &lt;- scan(&quot;datasets/008-hierro.txt&quot;)
+Fe</code></pre>
+<pre><code>##  [1] 11.9  9.4  8.3  7.6  9.7 20.4 11.5  9.4 15.2 10.4 16.2  9.3</code></pre>
+<p>Lo primero que debemos hacer es ordenar los datos de menor a mayor. Lo conseguimos en <em>R</em> con lo siguiente:</p>
+<pre class="r"><code>orden &lt;- sort(Fe)
+orden</code></pre>
+<pre><code>##  [1]  7.6  8.3  9.3  9.4  9.4  9.7 10.4 11.5 11.9 15.2 16.2 20.4</code></pre>
+<p>Ahora contamos el total de observaciones:</p>
+<pre class="r"><code>n &lt;- length(orden)
+n</code></pre>
+<pre><code>## [1] 12</code></pre>
+<p>Tenemos un conjunto par de observaciones, así que obtengamos los números que ocupan las posiciones centrales. Primero, el primero:</p>
+<pre class="r"><code>n1 &lt;-orden[n/2]
+n1</code></pre>
+<pre><code>## [1] 9.7</code></pre>
+<p>Y ahora el segundo:</p>
+<pre class="r"><code>n2 &lt;- orden[(n/2)+1]
+n2</code></pre>
+<pre><code>## [1] 10.4</code></pre>
+<p>Calculemos su media:</p>
+<pre class="r"><code>mediana1 &lt;- (n1+n2)/2
+mediana1</code></pre>
+<pre><code>## [1] 10.05</code></pre>
+</div>
+<div id="ejemplo-2" class="section level4">
+<h4>Ejemplo 2</h4>
+<p>La exposición a productos microbianos, especialmente endotoxina, puede tener un impacto en la vulnerabilidad a enfermedades alérgicas. El artículo (“<em>Dust Sampling Methods for Endotoxin-An Essential, But Underestimated Issue</em>”, Indoor Air, 2006: 20-27) consideró temas asociados con la determinación de concentración de endotoxina. Se obtuvieron dos tipos de muestra para datos sobre concentración (EU/mg) en polvo asentado: hogares urbanos (U) y otra de casas campestres (C), las cuales fueron amablemente suministrados por los autores del artículo citado.</p>
+<p>A continuación se muestra la muestra urbana:</p>
+<pre class="r"><code>u &lt;- scan(&quot;datasets/009-toxinas-U.txt&quot;)
+u</code></pre>
+<pre><code>##  [1]  6  5 11 33  4  5 80 18 35 17 23</code></pre>
+<p>Obtenemos el tamaño muestral:</p>
+<pre class="r"><code>tamano &lt;- length(u)
+tamano</code></pre>
+<pre><code>## [1] 11</code></pre>
+<p>En este caso tenemos un tamaño muestral impar, así que resulta más sencillo obtener la mediana. Ordenamos la muestra y enseguida obtenemos la posición del número central. La lista ordenada:</p>
+<pre class="r"><code>u.ordenada &lt;- sort(u)
+u.ordenada</code></pre>
+<pre><code>##  [1]  4  5  5  6 11 17 18 23 33 35 80</code></pre>
+<p>La posición del valor central:</p>
+<pre class="r"><code>mediana2 &lt;- u.ordenada[(tamano+1)/2]
+mediana2</code></pre>
+<pre><code>## [1] 17</code></pre>
+<p>Este es el valor de la mediana. Hasta ahora hemos estado utilizando comandos aritméticos para determinarla, sin embargo, existe un comando único en <em>R</em> para obtenerla. Para el primer conjunto de valores:</p>
+<pre class="r"><code>median(Fe)</code></pre>
+<pre><code>## [1] 10.05</code></pre>
+<p>Para el segundo:</p>
+<pre class="r"><code>median(u)</code></pre>
+<pre><code>## [1] 17</code></pre>
+<p>La media <span class="math inline">\(\mu\)</span> y la mediana <span class="math inline">\(\tilde \mu\)</span> poblacionales en general no serán idénticas. Si la distribución de la población es positiva o negativamente asimétrica, entonces <span class="math inline">\(\mu \neq \tilde \mu\)</span>. Cuando éste es el caso, al hacer inferencias primero se debe decidir cuál de las dos características de la población es de mayor interés y luego proceder como corresponda.</p>
+<div class="figure">
+<img src="images/018-median.jpg" alt="Solo en distribuciones normales simétricas" />
+<p class="caption">Solo en distribuciones normales simétricas</p>
+</div>
+<p>La mediana también puede calcularse con la función <code>quantile</code>, ya que a final de cuentas, es el segundo cuartil:</p>
+<pre class="r"><code>quantile(u, probs = 0.5)</code></pre>
+<pre><code>## 50% 
+##  17</code></pre>
+<p>Podemos calcular cualquier cuantil (también conocido como percentil), siendo los más comunes los cuartiles:</p>
+<pre class="r"><code>quantile(u, probs = 0.25)</code></pre>
+<pre><code>## 25% 
+## 5.5</code></pre>
+<pre class="r"><code>quantile(u, probs = 0.75)</code></pre>
+<pre><code>## 75% 
+##  28</code></pre>
+<pre class="r"><code>quantile(u, probs = 0.20)</code></pre>
+<pre><code>## 20% 
+##   5</code></pre>
+<p>Los cuartiles dividen el conjunto de datos precisamente en cuartas partes. Como puede deducirse de lo anterior, el primer cuartil toma solo el primer 25% de las observaciones, dejando libre el restante 75%. El tercer cuartil hace lo mismo pero a la inversa: toma el 25% superior y deja libres los primeros datos, correspondiendo al 75% inferior.</p>
 </div>
 </div>
-<div id="graficas-de-caja" class="section level2">
-<h2>Gráficas de caja</h2>
+</div>
+<div id="medidas-de-dispersion" class="section level2">
+<h2>Medidas de dispersión</h2>
+<p>En ocasiones queremos saber qué tan dispersos se encuentran los valores de una muestra entre sí o con respecto a la media. Para ello utilizamos las medidas de dispersión. Usualmente son tres: el <strong>rango</strong>, la <strong>varianza</strong> y la <strong>desviación estándar</strong>.</p>
+<div id="el-rango" class="section level3">
+<h3>El rango</h3>
+<p>Considera solo la diferencia entre el valor máximo y el mínimo, por lo que no toma en cuenta los valores intermedios:</p>
+<pre class="r"><code>u</code></pre>
+<pre><code>##  [1]  6  5 11 33  4  5 80 18 35 17 23</code></pre>
+<pre class="r"><code>rango &lt;- max(u) - min(u)</code></pre>
+<pre class="r"><code>rango</code></pre>
+<pre><code>## [1] 76</code></pre>
+</div>
+<div id="la-varianza" class="section level3">
+<h3>La varianza</h3>
+<p>Su fórmula es la siguiente:</p>
+<p><span class="math display">\[
+s^2=\frac{\sum_{i=1}^n (x_i-\bar x)^2}{n-1}
+\]</span></p>
+<p>Y su obtención se consigue con:</p>
+<pre class="r"><code>var(u)</code></pre>
+<pre><code>## [1] 497.2727</code></pre>
+</div>
+<div id="la-desviacion-estandar" class="section level3">
+<h3>La desviación estándar</h3>
+<p>No es más que la raíz cuadrada de la varianza. Se obtiene directamente con:</p>
+<pre class="r"><code>sd(u)</code></pre>
+<pre><code>## [1] 22.29961</code></pre>
+<div id="ejercicio-1" class="section level4">
+<h4>Ejercicio</h4>
+<p>La cantidad de luz reflejada por las hojas ha sido utilizada para varios propósitos, incluidas la evaluación del color del césped, la estimación del estado del nitrógeno y la medición de la biomasa. El artículo (“<em>Leaf Reflectance-Nitrogen-Chlorophyll Relations in Buffel-Grass</em>”, Photogrammetric Engr. and Remote Sensing, 1985: 463-466) dio las siguientes observaciones obtenidas por medio de espectrofotogrametría, de la reflexión de las hojas en condiciones experimentales.</p>
+<pre class="r"><code>hojas &lt;- read.table(&quot;datasets/011-hojas.txt&quot;, header = T)
+hojas</code></pre>
+<pre><code>##    Observación   xi
+## 1            1 15.2
+## 2            2 16.8
+## 3            3 12.6
+## 4            4 13.2
+## 5            5 12.8
+## 6            6 13.8
+## 7            7 16.3
+## 8            8 13.0
+## 9            9 12.7
+## 10          10 15.8
+## 11          11 19.2
+## 12          12 12.7
+## 13          13 15.6
+## 14          14 13.5
+## 15          15 12.9</code></pre>
+<blockquote>
+<p>Nótese que para capturar un archivo que no consta de una sola columna, en R podemos utilizar la función <code>read.table</code> con la función <code>header = TRUE</code>. Para <em>llamar</em> una sola columna podemos utilizar la nomenclatura <code>nombredelatabla$nombredelacolumna</code>, o bien <code>nombredelacolumna[,númerodecolumna]</code>.</p>
+</blockquote>
+<p>La idea es calcular la varianza de las observaciones. Para ello debemos invocar solamente la columna que nos interesa, que es la que contiene los datos como tales:</p>
+<pre class="r"><code>datos &lt;- hojas$xi
+datos</code></pre>
+<pre><code>##  [1] 15.2 16.8 12.6 13.2 12.8 13.8 16.3 13.0 12.7 15.8 19.2 12.7 15.6 13.5
+## [15] 12.9</code></pre>
+<pre class="r"><code>datos2 &lt;- hojas[,2]
+datos2</code></pre>
+<pre><code>##  [1] 15.2 16.8 12.6 13.2 12.8 13.8 16.3 13.0 12.7 15.8 19.2 12.7 15.6 13.5
+## [15] 12.9</code></pre>
+<p>Calculemos la varianza de dicha columna:</p>
+<pre class="r"><code>var(datos)</code></pre>
+<pre><code>## [1] 3.91781</code></pre>
+<blockquote>
+<p>Podemos calcular directamente sobre la columna:</p>
+</blockquote>
+<pre class="r"><code>var(hojas[,2])</code></pre>
+<pre><code>## [1] 3.91781</code></pre>
+<p>Calculemos ahora la desviación estándar:</p>
+<pre class="r"><code>sd(hojas[,2])</code></pre>
+<pre><code>## [1] 1.979346</code></pre>
+</div>
+</div>
+</div>
+<div id="medidas-de-forma" class="section level2">
+<h2>Medidas de forma</h2>
+<div id="graficas-de-caja" class="section level3">
+<h3>Gráficas de caja</h3>
 <p>Un gráfico que ha demostrado ser muy útil en la representación efectiva de los datos es precisamente el diagrama de caja. Este se construye a partir de medidas que son <em>resistentes</em> a los datos extremos, es decir, la mediana y los cuartiles. Las características que nos muestra el gráfico son el centro, la dispersión, la asimetría y la presencia -o ausencia- de observaciones extremas. Para ello es necesario encontrar los siguientes números: - Observaciones más pequeñas - Primer cuartil - Mediana - Tercer cuartil - Observaciones más grandes</p>
 <p>La distancia existente entre cuartiles es lo que se conoce como <strong>rango intercuartílico</strong>, y es representado por la altura de la caja dibujada si el es vertical (por lo tanto, se corresponde a la anchura si el eje fuera horizontal).</p>
-<div id="ejercicio-1" class="section level4">
+<div id="ejercicio-2" class="section level4">
 <h4>Ejercicio</h4>
 <p>Se utilizó ultrasonido para reunir los datos de corrosión adjuntos de la placa de piso de un tanque elevado utilizado para almacenar petróleo crudo (“Statistical Analysis of UT Corrosion Data from Floor Plates of a Crude Oil Aboveground Storage Tank”, Materials Eval., 1994: 846-849); cada observación es la profundidad de picadura más grande en la placa, expresada en milésimas de pulgada.</p>
 <pre class="r"><code>us &lt;- scan(&quot;datasets/012-ultrasonido.txt&quot;)
@@ -781,10 +1026,11 @@ us</code></pre>
 ##   40.00   72.50   90.00   86.32   96.50  125.00</code></pre>
 <p>Trazamos un eje (puede ser horizontal o vertical) con la escala adecuada, en este caso podemos dividir de diez en diez, partiendo desde 30 hasta llegar a 130. Sobre dicho eje trazamos un rectángulo cuyo lado izquierdo se encuentre en el primer cuartil (72.5); y su lado derecho en el tercero (96.5). Dentro del rectángulo dibujaremos la línea que represente la mediana (90). Al finalizar esto, trazamos una línea que salga del lado izquierdo del rectángulo y termine en el número más pequeño (40). Así mismo, trazamos una línea que llegue al número más alto (125). La gráfica debería quedarnos más o menos como sigue:</p>
 <pre class="r"><code>boxplot(us)</code></pre>
-<p><img src="U1_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="U1_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 </div>
-<div id="presencia-de-datos-extremos" class="section level3">
-<h3>Presencia de datos extremos</h3>
+</div>
+<div id="graficas-de-caja-con-datos-atipicos" class="section level3">
+<h3>Gráficas de caja con datos atípicos</h3>
 <p>La presencia de datos extremos puede ser contraproducente. Por lo tanto no es deseable tomarlos en cuenta si se quiere asumir que la distribución de los datos es <em>normal</em>. Por ello, debemos indicar explícitamente la presencia de datos atípicos, de los cuales podemos distinguir entre moderados y extremos. Para esto, debemos calcular el rango intercuartílico (<span class="math inline">\(f_s\)</span>) y multiplicarlo por <span class="math inline">\(1.5\)</span>. Cualquier dato que se encuentre a más de <span class="math inline">\(1.5f_s\)</span> del extremo de la caja se considera atípico o apartado. De entre estos valores apartados, asumiremos que todos son moderados con excepción de los que se encuentren a más de <span class="math inline">\(3f_s\)</span> del cuartil más cercano.</p>
 <div id="ejercicio-con-datos-apartados" class="section level4">
 <h4>Ejercicio con datos apartados</h4>
@@ -830,7 +1076,7 @@ limix</code></pre>
 ## 70.7</code></pre>
 <p>Podemos darnos cuenta que en este lado sí existen datos extremos: 5.3, 8.2 y 13.8. Por lo tanto, el rectángulo (la caja) sí se traza de manera normal, pero las líneas (los bigotes) no. Sus extremos llegan solamente hasta los datos que se consideran normales: 85.3 en el lado inferior y 106.0 en el superior. Las observaciones apartadas moderadas se trazan como círculos oscuros y las apartadas extremas como círculos claros. Cabe mencionar que algunos paquetes estadísticos no distinguen los datos anormales moderados de los extremos, como es el caso de R. Tracemos nuestra caja:</p>
 <pre class="r"><code>boxplot.default(desc, horizontal = T)</code></pre>
-<p><img src="U1_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p><img src="U1_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -844,59 +1090,86 @@ limix</code></pre>
 \hat y=\beta_0+\beta_1x
 \]</span></p>
 <p>Este arreglo traza en el plano una línea recta que tendra a <span class="math inline">\(\beta_0\)</span> como su intersección en el eje <span class="math inline">\(y\)</span> o valor de arranque, mientras que el coeficiente <span class="math inline">\(\beta_1\)</span> se corresponde con la pendiente o cambio promedio de la propia <span class="math inline">\(y\)</span>. Consideremos pues, que de acuerdo a la expresión de arriba, <span class="math inline">\(y\)</span> es la variable dependiente, pronosticada, explicada o influenciada, mientras <span class="math inline">\(x\)</span> es la variable independiente, pronosticadora, explicativa o influenciadora. En otras palabras, <span class="math inline">\(\beta_0\)</span> es el valor de <span class="math inline">\(y\)</span> cuando <span class="math inline">\(x\)</span> es nula; por otro lado, por cada unidad que <span class="math inline">\(x\)</span> cambie, <span class="math inline">\(y\)</span> estará cambiando <span class="math inline">\(\beta_1\)</span> veces. A partir de ahora se trabajará con datos bivariables, es decir, datos con valores correspondientes a <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span>. El primer paso para comenzar un análisis de regresión es construir un gráfico de puntos bivariable, donde cada par <span class="math inline">\((x_i,y_i)\)</span> será representado por un punto en el plano <span class="math inline">\(xy\)</span>.</p>
-<div id="ejemplo-1" class="section level4">
+<div id="ejemplo-1-1" class="section level4">
 <h4>Ejemplo 1</h4>
 <p>Los problemas visuales y musculoesqueléticos asociados con el uso de terminales con pantallas de visualización (VDT, por sus siglas en inglés) se han vuelto un tanto comunes en años recientes. Algunos investigadores se han enfocado en la dirección vertical de la mirada fija como causa del cansancio e irritación de los ojos. Se sabe que esta relación está estrechamente relacionada con el área de la superficie ocular (OSA, por sus siglas en inglés), así que se requiere un método de medir el área de la superficie ocular. Los datos representativos adjuntos sobre <span class="math inline">\(y=\)</span> OSA (cm2) y <span class="math inline">\(x=\)</span> ancho de la fisura palprebal (es decir, el ancho horizontal de la apertura del ojo (en cm) se tomó del artículo “Analysis of Ocular Surface Area for Comfortable VDT Workstation Layout” (Ergonomics, 1996: 877-884). No se da el orden en el cual se obtuvieron las observaciones, así que por conveniencia aparecen en orden creciente de los valores <span class="math inline">\(x\)</span>.</p>
 <pre class="r"><code>osa &lt;- read.table(&quot;datasets/014-osa.txt&quot;, header = T)
-head(osa)</code></pre>
-<pre><code>##   i    x    y
-## 1 1 0.40 1.02
-## 2 2 0.42 1.21
-## 3 3 0.48 0.88
-## 4 4 0.51 0.98
-## 5 5 0.57 1.52
-## 6 6 0.60 1.83</code></pre>
+(osa)</code></pre>
+<pre><code>##       x    y
+## 1  0.40 1.02
+## 2  0.42 1.21
+## 3  0.48 0.88
+## 4  0.51 0.98
+## 5  0.57 1.52
+## 6  0.60 1.83
+## 7  0.70 1.50
+## 8  0.75 1.80
+## 9  0.75 1.74
+## 10 0.78 1.63
+## 11 0.84 2.00
+## 12 0.95 2.80
+## 13 0.99 2.48
+## 14 1.03 2.47
+## 15 1.12 3.05
+## 16 1.15 3.18
+## 17 1.20 3.76
+## 18 1.25 3.68
+## 19 1.25 3.82
+## 20 1.28 3.21
+## 21 1.30 4.27
+## 22 1.34 3.12
+## 23 1.37 3.99
+## 24 1.40 3.75
+## 25 1.43 4.10
+## 26 1.46 4.18
+## 27 1.49 3.77
+## 28 1.55 4.34
+## 29 1.58 4.21
+## 30 1.60 4.92</code></pre>
 <p>El conjunto de datos completo se encuentra en la carpeta <em>datasets</em> en la página de la asignatura en <a href="https://github.com/LuisEMendoza/PyE-UVM/tree/master/datasets">GitHub</a>. Ahora bien, procedamos a trazar el gráfico:</p>
 <pre class="r"><code>ancho &lt;- osa$x
 area &lt;- osa$y
 plot(ancho, area)</code></pre>
-<p><img src="U1_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="U1_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>Podemos observar en este gráfico que existen valores de <span class="math inline">\(x\)</span> que se repiten, pero no les corresponden los mismos valores en <span class="math inline">\(y\)</span>, como es el caso de ambos <span class="math inline">\(0.75\)</span> en <span class="math inline">\(x\)</span>, cuyos valores difieren para <span class="math inline">\(y\)</span> en cuanto a que uno es de <span class="math inline">\(1.80\)</span> y el segundo es de <span class="math inline">\(1.74\)</span>. Con esto podemos notar que los valores de <span class="math inline">\(y\)</span> no dependen exclusivamente de <span class="math inline">\(x\)</span>, sino de otros factores que de momento, no conocemos. Sin embargo, podemos deducir o pronosticar un valor de <span class="math inline">\(y\)</span> que corresponda a uno de <span class="math inline">\(x\)</span> que propongamos; debido a que es notorio que sí existe una relación lineal entre ambas variables, ya que al aumento de una, le corresponde el de la otra. Debemos encontrar una expresión que represente esta relación y su fuerza.</p>
 <p>Dicha expresión para un modelo determinístico <span class="math inline">\(\hat y=\beta_0+\beta_1x\)</span>, indica que el valor observado de <span class="math inline">\(y\)</span> es una función lineal de <span class="math inline">\(x\)</span>. La generalización apropiada de esto a un modelo probabilístico supone que el valor esperado de <span class="math inline">\(Y\)</span> es una función lineal de <span class="math inline">\(x\)</span>, pero que con <span class="math inline">\(x\)</span> fija, la variable <span class="math inline">\(Y\)</span> difiere de su valor esperado en una cantidad aleatoria.</p>
 <p>La ecuación de regresión cambia entonces para agregar el elemento probabilístico: el <strong>término de error aleatorio</strong> o <strong>desviación aleatoria</strong>.</p>
 <p><span class="math display">\[
 Y=\beta_0+\beta_1x+\epsilon
 \]</span> Donde <span class="math inline">\(\epsilon\)</span> es precisamente el error aleatorio. Sin este término, todos los puntos se encontrarían sobre la línea que representa la ecuación misma, pero al trazarla para este caso, podremos darnos cuenta de que no es así. Podemos pensar entonces que la distancia entre cada punto que representa un par de observaciones a la línea es precisamente el término de error aleatorio que le corresponde a dicho par. Tracemos una línea que represente la relación entre variables:</p>
-<p><img src="U1_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
-<p>Aquí se observa precisamente lo que se mencionaba nateriormente, la distancia que existe entre cada punto y la línea que representa la relación lineal entre ambas variables. Veamos otro caso:</p>
+<p><img src="U1_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p>Aquí se observa precisamente lo que se mencionaba nateriormente, la distancia que existe entre cada punto y la línea que representa la relación lineal entre ambas variables:</p>
 </div>
 </div>
 <div id="metodo-de-minimos-cuadrados" class="section level3">
 <h3>Método de mínimos cuadrados</h3>
 <p>Se remite a los tiempos del matemático alemán <strong>Gauss</strong>, y consiste de las siguientes fórmulas para la obtención de la ecuación de regresión:</p>
-<p>$$ b_1= \  \</p>
-<p>b_0=y-b_1 x $$</p>
-<div id="ejemplo-2" class="section level4">
+<p><span class="math display">\[
+b_1=\frac{\sum x_iy_i-\frac{\sum x_i\sum y_i}{n}}{\sum x_i^2-\frac{(\sum x_i)^2}{n}} \\
+\ \\
+b_0=\bar y-b_1 \bar x
+\]</span></p>
+<div id="ejemplo-2-1" class="section level4">
 <h4>Ejemplo 2</h4>
 <p>El concreto sin finos, hecho de un agregado grueso uniformemente graduado y una pasta de cemento y agua, es benéfico en áreas propensas a lluvias intensas debido a sus excelentes propiedades de drenaje. El artículo “Pavement Thickness Design for No-Fines Concrete Parking Lots” (J. of Transportation Engr., 1995: 476-484) empleó un análisis de mínimos cuadrados al estudiar cómo <span class="math inline">\(y=\)</span> porosidad (%) está relacionada con <span class="math inline">\(x=\)</span> peso unitario (pcf) en especímenes de concreto. Considere los siguientes datos representativos, mostrados en formato tabular conveniente para calcular los valores de los estadísticos resumidos:</p>
 <pre class="r"><code>concreto &lt;- read.table(&quot;datasets/015-concreto.txt&quot;, header = T)
 concreto</code></pre>
-<pre><code>##    Obs  peso porosidad
-## 1    1  99.0      28.8
-## 2    2 101.1      27.9
-## 3    3 102.7      27.0
-## 4    4 103.0      25.2
-## 5    5 105.4      22.8
-## 6    6 107.0      21.5
-## 7    7 108.7      20.9
-## 8    8 110.8      19.6
-## 9    9 112.1      17.1
-## 10  10 112.4      18.9
-## 11  11 113.6      16.0
-## 12  12 113.8      16.7
-## 13  13 115.1      13.0
-## 14  14 115.4      13.6
-## 15  15 120.0      10.8</code></pre>
+<pre><code>##     peso porosidad
+## 1   99.0      28.8
+## 2  101.1      27.9
+## 3  102.7      27.0
+## 4  103.0      25.2
+## 5  105.4      22.8
+## 6  107.0      21.5
+## 7  108.7      20.9
+## 8  110.8      19.6
+## 9  112.1      17.1
+## 10 112.4      18.9
+## 11 113.6      16.0
+## 12 113.8      16.7
+## 13 115.1      13.0
+## 14 115.4      13.6
+## 15 120.0      10.8</code></pre>
 <p>Calculemos los valores que necesitamos para encontrar cada coeficiente. Definimos primero los vectores que utilizaremos para el análisis. El primero como <code>peso</code>:</p>
 <pre class="r"><code>peso &lt;- concreto$peso #definimos el vector &quot;peso&quot;
 peso</code></pre>
@@ -977,6 +1250,10 @@ b_0=19.98-(-0.9047)*(109.34)=118.9099
 \hat y=118.91-0.905x
 \]</span></p>
 <p>Con lo anterior, se estima que el cambio de porosidad esperado asociado con un incremento de una unidad en el peso unitario es de <span class="math inline">\(\approx -0.905%\)</span> (una reducción de 0.905%). La figura siguiente, muestra que la línea de mínimos cuadrados proporciona un excelente resumen de la relación entre las dos variables.</p>
+<pre class="r"><code>r2 &lt;- lm(porosidad~peso)
+plot(peso, porosidad)
+abline(r2)</code></pre>
+<p><img src="U1_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 <p>Todo lo anterior puede ser conseguido con una sola línea de código en <em>R</em>:</p>
 <pre class="r"><code>rl &lt;- lm(porosidad~peso)
 rl</code></pre>
@@ -987,12 +1264,50 @@ rl</code></pre>
 ## Coefficients:
 ## (Intercept)         peso  
 ##    118.9099      -0.9047</code></pre>
+<p>Aquí podemos observar que <code>Intercept</code> es nuestro coeficiente <span class="math inline">\(b_0\)</span> y <code>peso</code> se corresponde con <span class="math inline">\(b_1\)</span>. El siguiente paso es obtener el valor pronosticado de <span class="math inline">\(y\)</span> para un determinado valor de <span class="math inline">\(x\)</span>. Para ello sustituimos en nuestra ecuación de regresión un peso de <em>109</em> y resolvemos para <span class="math inline">\(y\)</span>:</p>
+<pre class="r"><code>118.9099 - 0.9047*109</code></pre>
+<pre><code>## [1] 20.2976</code></pre>
+<p>Lo anterior implica que para un peso de 109, la porosidad esperada sería de 20.2976. Podemos sustituir tantos valores de <span class="math inline">\(x\)</span> como queramos, pero no se recomienda que sean muy diferentes a los que se encuentran originalmente en la tabla de datos.</p>
 </div>
+</div>
+<div id="coeficiente-de-determinacion" class="section level3">
+<h3>Coeficiente de determinación</h3>
+<p>Mientras el valor de <span class="math inline">\(b_1\)</span> nos indica si la relación entre las dos variables es positiva, no tenemos de momento una medida que nos cuantifique qué tan fuerte es dicha relación. Para ello contamos con el coeficiente de determinación, el cual podemos obtenr a partir del coeficiente de correlación, fácil de calcular en <em>R</em>:</p>
+<pre class="r"><code>coef.cor &lt;- cor(peso, porosidad)
+coef.cor</code></pre>
+<pre><code>## [1] -0.9868573</code></pre>
+<p>Este coeficiente nos indica la naturaleza de la relación. Al tener signo negativo, nos confirma lo que <span class="math inline">\(b_1\)</span> ya mostró: relación negativa. Pero aún no nos indica qué tan fuerte es dicha relación. Para ello calculamos el cuadrado de dicho coeficiente:</p>
+<pre class="r"><code>coef.cor^2</code></pre>
+<pre><code>## [1] 0.9738874</code></pre>
+<p>La relación es bastante alta, ya que el coeficiente de determinación oscila en un rango muy pequeño, de cero a uno. Mientras más se acerque al uno, más exitoso es nuestro modelo explicando la naturaleza de lo que estamos estudiando. Convertido en porcentaje, nos indica que <span class="math inline">\(x\)</span> explica el 97.39% de la variación de <span class="math inline">\(y\)</span>; o lo que es lo mismo, el 97.39% de la variación en la porosidad es explicada por el peso.</p>
+<p>El coeficiente de determinación también puede ser obtenido mediante la sentencia:</p>
+<pre class="r"><code>summary(rl)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = porosidad ~ peso)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.7754 -0.5727 -0.1325  0.6034  1.6818 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 118.90992    4.49912   26.43 1.10e-12 ***
+## peso         -0.90473    0.04109  -22.02 1.12e-11 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.938 on 13 degrees of freedom
+## Multiple R-squared:  0.9739, Adjusted R-squared:  0.9719 
+## F-statistic: 484.8 on 1 and 13 DF,  p-value: 1.125e-11</code></pre>
+<p>Con la cual, bajo el nombre de <em>R-squared</em>, aparece nuestro valor ya obtenido. Es importante notar que aparecen dos de estos. El primero (<em>Multiple…</em>) es el que tomamos para modelos que solo contengan una variable dependiente y otra independiente. El segundo (<em>Ajusted…</em>) es útil para modelos multivariables.</p>
 </div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -1025,6 +1340,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
