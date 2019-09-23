@@ -84,6 +84,19 @@ c) Calcule el rango y el rango intercuartílico.
 d) Calcule la varianza y la desviación estándar.
 e) Comente la forma de la distribución. ¿Esta es la forma que esperaría? ¿Por qué sí o por qué no?
 f) ¿Hay observaciones atípicas en estos datos?
+g) Trace el gráfico de caja pertinente.
+
+7. La oficina de censos de Estados Unidos proporciona estadísticas sobre las familias en ese país, informaciones como edad al contraer el primer matrimonio, estado civil actual y tamaño de la casa (www.census.gov, 20 de marzo de 2006). Los datos siguientes son edades al contraer el primer matrimonio en una muestra de hombres y en una muestra de mujeres.
+
+```{r echo=FALSE}
+edades <- read.table("datasets/022-edades.txt")
+edades
+```
+
+a. Determine la mediana en la edad de hombres y mujeres al contraer el primer matrimonio.
+b. Calcule el primer y tercer cuartil tanto en los hombres como en las mujeres.
+c. Hace 30 años la mediana en la edad al contraer el primer matrimonio era 25 años entre los hombres y 22 años entre las mujeres. ¿Qué indica esta información acerca de la edad a la que deciden contraer matrimonio los jóvenes de hoy en día?
+d. Trace la gráfica de caja para este problema.
 
 
 Vuelva al conjunto de datos del problema 5.
