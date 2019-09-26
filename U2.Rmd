@@ -1,8 +1,47 @@
 ---
-title: "Probabilidad"
-author: "LEMR"
-date: "25/8/2019"
-output: html_document
+title: "Introducción a la Probabilidad"
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
-En construcción
+La probabilidad es una medida numérica de la posibilidad de que ocurra un evento. Por tanto, las probabilidades son una medida del grado de incertidumbre asociado con cada uno de los eventos previamente enunciados. Si cuenta con las probabilidades, tiene la capacidad de determinar la posibilidad de ocurrencia que tiene cada evento. La probabilidad sempre se expresa en término decimales o porcentajes, siendo 0 el valor de probabilidad de algo improbable y 1 (o 100%) el de algo seguro.
+
+## Experimentos, reglas de conteo y asignación de probabilidades
+Un __experimento__ es un proceso que arroja resultados definidos y en cada una de las ocasiones que se lleve a cabo generará solo uno de todos los posibles resultados. Podemos definir como experimentos:
+
+__Arrojar una moneda__, cuyos posibles resultados son _águila_ o _sello_.
+__Inspeccionar una pieza__, con defecto o sin defecto.
+__Realizar una llamada de ventas__, se consigue la compra o no.
+__Jugar un partido de futbol__, se gana, se empata o se pierde.
+
+Todos los posibles resultados de un experimento se definen como el __campo muestral__ del mismo. Mientras que a cada posible resultado se le conoce como __punto muestra__. El espacio muestral se denota por la letra $S$ y por tanto, se puede utilizar la siguiente notación para describirlo en función de los posibles resultados $x_i$:
+
+$$
+S=\{x_1, x_2, x_3,...x_n\}
+$$
+
+Si por ejemplo, tomamos el caso de una moneda, podremos describirlo así:
+
+$$
+S_{moneda}=\{águila, sello \}
+$$
+
+O en el caso de un dado:
+
+$$
+S_{dado}=\{1,2,3,4,5,6\}
+$$
+### Reglas de conteo
+Veamos cómo se identifican y cuentan los resultados experimentales. Existen tres reglas de conteo que son muy utilizadas.
+
+#### Experimentos de pasos múltiples
+Considere un experimento que consiste en lanzar dos monedas. ¿Cuántos posibles resultados tiene este experimento? Tomemos en cuenta que primero se lanza una moneda y enseguida la otra. Si denotamos _águila_ con $A$ y _sello_ con $B$, entonces los posibles resultados son:
+
+$$
+S_{monedas}=\{(A,A),(A,B),(B,A),(B,B) \}
+$$
+
+> Un experimento se describe como una sucesión de $k$ pasos 
+

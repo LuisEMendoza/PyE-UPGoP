@@ -10,10 +10,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="LEMR" />
 
 
-<title>Probabilidad</title>
+<title>Introducción a la Probabilidad</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,6 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -249,6 +251,63 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -256,6 +315,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -335,17 +404,44 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Probabilidad</h1>
-<h4 class="author">LEMR</h4>
-<h4 class="date">25/8/2019</h4>
+<h1 class="title toc-ignore">Introducción a la Probabilidad</h1>
 
 </div>
 
 
-<p>En construcción</p>
+<p>La probabilidad es una medida numérica de la posibilidad de que ocurra un evento. Por tanto, las probabilidades son una medida del grado de incertidumbre asociado con cada uno de los eventos previamente enunciados. Si cuenta con las probabilidades, tiene la capacidad de determinar la posibilidad de ocurrencia que tiene cada evento. La probabilidad sempre se expresa en término decimales o porcentajes, siendo 0 el valor de probabilidad de algo improbable y 1 (o 100%) el de algo seguro.</p>
+<div id="experimentos-reglas-de-conteo-y-asignacion-de-probabilidades" class="section level2">
+<h2>Experimentos, reglas de conteo y asignación de probabilidades</h2>
+<p>Un <strong>experimento</strong> es un proceso que arroja resultados definidos y en cada una de las ocasiones que se lleve a cabo generará solo uno de todos los posibles resultados. Podemos definir como experimentos:</p>
+<p><strong>Arrojar una moneda</strong>, cuyos posibles resultados son <em>águila</em> o <em>sello</em>. <strong>Inspeccionar una pieza</strong>, con defecto o sin defecto. <strong>Realizar una llamada de ventas</strong>, se consigue la compra o no. <strong>Jugar un partido de futbol</strong>, se gana, se empata o se pierde.</p>
+<p>Todos los posibles resultados de un experimento se definen como el <strong>campo muestral</strong> del mismo. Mientras que a cada posible resultado se le conoce como <strong>punto muestra</strong>. El espacio muestral se denota por la letra <span class="math inline">\(S\)</span> y por tanto, se puede utilizar la siguiente notación para describirlo en función de los posibles resultados <span class="math inline">\(x_i\)</span>:</p>
+<p><span class="math display">\[
+S=\{x_1, x_2, x_3,...x_n\}
+\]</span></p>
+<p>Si por ejemplo, tomamos el caso de una moneda, podremos describirlo así:</p>
+<p><span class="math display">\[
+S_{moneda}=\{águila, sello \}
+\]</span></p>
+<p>O en el caso de un dado:</p>
+<p><span class="math display">\[
+S_{dado}=\{1,2,3,4,5,6\}
+\]</span> ### Reglas de conteo Veamos cómo se identifican y cuentan los resultados experimentales. Existen tres reglas de conteo que son muy utilizadas.</p>
+<div id="experimentos-de-pasos-multiples" class="section level4">
+<h4>Experimentos de pasos múltiples</h4>
+<p>Considere un experimento que consiste en lanzar dos monedas. ¿Cuántos posibles resultados tiene este experimento? Tomemos en cuenta que primero se lanza una moneda y enseguida la otra. Si denotamos <em>águila</em> con <span class="math inline">\(A\)</span> y <em>sello</em> con <span class="math inline">\(B\)</span>, entonces los posibles resultados son:</p>
+<p><span class="math display">\[
+S_{monedas}=\{(A,A),(A,B),(B,A),(B,B) \}
+\]</span></p>
+<blockquote>
+<p>Un experimento se describe como una sucesión de <span class="math inline">\(k\)</span> pasos</p>
+</blockquote>
+</div>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -378,6 +474,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
