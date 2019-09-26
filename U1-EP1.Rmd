@@ -99,6 +99,7 @@ c. Hace 30 años la mediana en la edad al contraer el primer matrimonio era 25 a
 d. Trace la gráfica de caja para este problema.
 
 
+## Análisis de regresión
 Vuelva al conjunto de datos del problema 5.
 
 a. Elabore un diagrama de dispersión que muestre la relación entre las dos variables, tempera
