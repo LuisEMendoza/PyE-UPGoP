@@ -43,5 +43,45 @@ $$
 S_{monedas}=\{(A,A),(A,B),(B,A),(B,B) \}
 $$
 
-> Un experimento se describe como una sucesión de $k$ pasos 
+> Un experimento se describe como una sucesión de $k$ pasos en los que hay $n_1$ resultados posibles en el primer paso, $n_2$ resultados posibles en el segundo y así sucesivamente. Por lo tanto, el número total de resultados experimentales es $(n_1)(n_2)...(n_k)$.
+
+Si retomamos el caso anterior, lanzar la primera moneda implica $(n_1=2)$ y la segunda $(n_2=2)$, siguiendo la regla de conteo $(2)(2)=4$, así que tenemos cuatro posibles resultados. Ahora bien, si por ejemplo lanzamos tres monedas, tendremos $(2)(2)(2)=8$ resultados experimentales. 
+
+Un diagrama que puede apoyar en la elaboración de reglas de conteo es el __diagrama de árbol__, el cual se muestra a continuación para el problema del lanzamiento de dos monedas. 
+
+```{r echo=FALSE}
+library(DiagrammeR)
+```
+
+```{r echo=FALSE}
+grViz("
+digraph dot {
+
+graph [layout = dot, rankdir = LR]
+
+node [shape = circle,
+      style = filled,
+      label = '']
+
+node [fillcolor = white,
+      label = 'M']
+a
+
+node [fillcolor = white,
+      label = 'A']
+b d f
+
+node [fillcolor = white
+      label = 'B']
+
+edge [color = black]
+a -> {b c}
+b -> {d e}
+c -> {f g}
+}")
+```
+
+La secuencia va de izquierda a derecha, donde el primer paso representa los posibles resultados del primer lanzamiento y el segundo al de la segunda moneda. En cada paso los dos posibles resultados son $(A,B)$, y podemos notar que a cada resultado del primer paso le corresponden otros dos posibles resultados: los del segundo lanzamiento. Cada uno de los extremos de la derecha se corresponde con un resultado experimental. Cada ruta, saliendo desde el inicio hasta cada una de las ramificaciones se corresponde con una secuencia única de resultados experimentales.
+
+Veamos ahora otro ejemplo donde podemos aplicar la regla de conteo
 
