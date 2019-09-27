@@ -29,6 +29,8 @@
         - text: "Unidad 1"
         - text: "EP1"
           href: U1-EP1.html
+        - text: "EP2"
+          href: U1-EP2.html
   output:
     html_document:
         theme: cosmo

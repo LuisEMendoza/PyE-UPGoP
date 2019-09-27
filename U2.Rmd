@@ -160,6 +160,7 @@ Permite conocer el número de resultados experimentales cuando el propio experim
 > El número de combinaciones de $N$ objetos tomados de $n$ en $n$ es:
 $$
 C_n^n= \left( \begin{array}{c}N\\ n \end{array}  \right) = \frac{N!}{n!(N-n)!}\\
+\ \\
 Donde: N!=N(N-1)(N-2)...(2)(1)\\
 n!=n(n-1)(n-2)...(2)(1)\\
 0!=1
@@ -205,7 +206,7 @@ C_6^{53}=\left(\begin{array}{c}53\\6 \end{array} \right)=\frac{53!}{6!(53-6)!}=2
 $$
 
 ```{r}
-c <- combn(6,2) #asignemos el resultado a una variable 'c'
+c <- combn(53,6) #asignemos el resultado a una variable 'c'
 ncol(c) #solo queremos que nos cuente las columnas y nos lo diga
 ```
 
@@ -241,11 +242,11 @@ Es el más conveniente cuando existen datos para estimar la proporción de veces
 
 Número de personas que esperan|Número de días: resultados de ocurrencia 
 :---:|:---:
-0 	2 
-1 	5 
-2 	6 
-3 	4 
-4 	3 
+0 |	2 
+1 |	5 
+2 |	6 
+3 |	4 
+4 |	3 
  |Total = 20 
 
 Podemos notar que de los 20 días, en dos había nadie esperando; en cinco días había un paciente; en seis había dos pacientes y así sucesivamente. Para saber la probabilidad de que un día dado haya nadie esperando, simplemente sacamos la frecuencia relativa de dicha situación: $P(0)=2/20=0.10$. La probabilidad de que un día haya cuatro personas esperando su turno a las 9:00am es $3/20$, es decir, $P(4)=3/20=0.15$.
