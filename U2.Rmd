@@ -204,10 +204,15 @@ $$
 C_6^{53}=\left(\begin{array}{c}53\\6 \end{array} \right)=\frac{53!}{6!(53-6)!}=22'957,480
 $$
 
-Existen casi 23 millones de boletos. Significa que una persona que compra un solo boleto tiene una posibilidad en casi 23 millones de ganar.
+```{r}
+c <- combn(6,2) #asignemos el resultado a una variable 'c'
+ncol(c) #solo queremos que nos cuente las columnas y nos lo diga
+```
 
-#### Permutaciones  
-Dicha regla permite calcular el número de resultados cuando se seleccionan $n$ objetos de un conjunto de $N$ objetos y el orden de selección es _relevante_.
+Existen casi 23 millones de boletos. Significa que una persona que compra un solo boleto tiene una posibilidad en casi 23 millones de ganar.
+Dicha regla permite calcular el número de resultados cuando se seleccionan $n$ objetos
+
+#### Permutaciones   de un conjunto de $N$ objetos y el orden de selección es _relevante_.
 
 > El número de permutaciones de $N$ objetos tomados de $n$ en $n$ está dado por:
 $$
