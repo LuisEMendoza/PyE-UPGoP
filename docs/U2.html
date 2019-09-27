@@ -429,7 +429,8 @@ S_{moneda}=\{águila, sello \}
 <p>O en el caso de un dado:</p>
 <p><span class="math display">\[
 S_{dado}=\{1,2,3,4,5,6\}
-\]</span> ### Reglas de conteo Veamos cómo se identifican y cuentan los resultados experimentales. Existen tres reglas de conteo que son muy utilizadas.</p>
+\]</span> ### Reglas de conteo</p>
+<p>Veamos cómo se identifican y cuentan los resultados experimentales. Existen tres reglas de conteo que son muy utilizadas.</p>
 <div id="experimentos-de-pasos-multiples" class="section level4">
 <h4>Experimentos de pasos múltiples</h4>
 <p>Considere un experimento que consiste en lanzar dos monedas. ¿Cuántos posibles resultados tiene este experimento? Tomemos en cuenta que primero se lanza una moneda y enseguida la otra. Si denotamos <em>águila</em> con <span class="math inline">\(A\)</span> y <em>sello</em> con <span class="math inline">\(B\)</span>, entonces los posibles resultados son:</p>
@@ -441,8 +442,8 @@ S_{monedas}=\{(A,A),(A,B),(B,A),(B,B) \}
 </blockquote>
 <p>Si retomamos el caso anterior, lanzar la primera moneda implica <span class="math inline">\((n_1=2)\)</span> y la segunda <span class="math inline">\((n_2=2)\)</span>, siguiendo la regla de conteo <span class="math inline">\((2)(2)=4\)</span>, así que tenemos cuatro posibles resultados. Ahora bien, si por ejemplo lanzamos tres monedas, tendremos <span class="math inline">\((2)(2)(2)=8\)</span> resultados experimentales.</p>
 <p>Un diagrama que puede apoyar en la elaboración de reglas de conteo es el <strong>diagrama de árbol</strong>, el cual se muestra a continuación para el problema del lanzamiento de dos monedas.</p>
-<div id="htmlwidget-c88648b38a5769352d0f" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c88648b38a5769352d0f">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"M\"]\na\n\nnode [fillcolor = white,\n      label = \"A\"]\nb d f\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c}\nb -> {d e}\nc -> {f g}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-29ef64bb3bfff39f01a6" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-29ef64bb3bfff39f01a6">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"M\"]\na\n\nnode [fillcolor = white,\n      label = \"A\"]\nb d f\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c}\nb -> {d e}\nc -> {f g}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>La secuencia va de izquierda a derecha, donde el primer paso representa los posibles resultados del primer lanzamiento y el segundo al de la segunda moneda. En cada paso los dos posibles resultados son <span class="math inline">\((A,B)\)</span>, y podemos notar que a cada resultado del primer paso le corresponden otros dos posibles resultados: los del segundo lanzamiento. Cada uno de los extremos de la derecha se corresponde con un resultado experimental. Cada ruta, saliendo desde el inicio hasta cada una de las ramificaciones se corresponde con una secuencia única de resultados experimentales.</p>
 <p>Veamos ahora otro ejemplo donde podemos aplicar la regla de conteo</p>
 </div>
