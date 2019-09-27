@@ -1,5 +1,7 @@
 ---
 title: "Evidencia de Producto 2"
+output:
+  pdf_document
 ---
 
 ## Consulta sobre conceptos básicos de Estadística

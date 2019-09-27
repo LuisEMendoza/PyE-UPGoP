@@ -247,7 +247,7 @@ Número de personas que esperan|Número de días: resultados de ocurrencia
 2 |	6 
 3 |	4 
 4 |	3 
- |Total = 20 
+  |Total = 20 
 
 Podemos notar que de los 20 días, en dos había nadie esperando; en cinco días había un paciente; en seis había dos pacientes y así sucesivamente. Para saber la probabilidad de que un día dado haya nadie esperando, simplemente sacamos la frecuencia relativa de dicha situación: $P(0)=2/20=0.10$. La probabilidad de que un día haya cuatro personas esperando su turno a las 9:00am es $3/20$, es decir, $P(4)=3/20=0.15$.
 
