@@ -159,5 +159,98 @@ Permite conocer el número de resultados experimentales cuando el propio experim
 
 > El número de combinaciones de $N$ objetos tomados de $n$ en $n$ es:
 $$
-C_n^n=
+C_n^n= \left( \begin{array}{c}N\\ n \end{array}  \right) = \frac{N!}{n!(N-n)!}\\
+Donde: N!=N(N-1)(N-2)...(2)(1)\\
+n!=n(n-1)(n-2)...(2)(1)\\
+0!=1
 $$
+
+Recordemos que el signo $!$ en matemáticas significa _factorial_. Así, por ejemplo, el factorial de $5$ es:
+$$
+5!=(5)(4)(3)(2)(1)=120
+$$
+En _R_ lo calculamos así:
+```{r}
+factorial(5)
+```
+
+Para ilustrar la regla de conteo para combinaciones, veamos el caso de un proceso en el que se quiere inspeccionar la calidad. Se toma una muestra de seis piezas, de las cuales se revisarán dos para comprobar que no tengan defectos. A partir de esas seis piezas, ¿cuántas combinaciones de dos partes pueden existir? 
+
+Hagamos $N=6$, por ser el conjunto mayor y $n=2$ por ser la submuestra, se tiene que:
+
+$$
+C_2^5=\left(\begin{array}{c}6\\ 2 \end{array} \right)=\frac{6!}{2!(6-2)!}=\frac{720}{48}=15
+$$
+
+En _R_ lo calculamos así:
+
+```{r}
+combn(6,2) #ponemos 'N' primero y enseguida 'n'
+```
+
+Notemos que _R_ nos muestra todas las posibles combinaciones en columnas y las enumera. Si solo queremos que nos diga la cantidad de combinaciones podemos usar un pequeño atajo:
+
+```{r}
+c <- combn(6,2) #asignemos el resultado a una variable 'c'
+ncol(c) #solo queremos que nos cuente las columnas y nos lo diga
+```
+
+
+De modo que la persona que va a inspeccionar las piezas tiene hasta 15 posibles combinaciones. Supongamos ahora la lotería de algunos países. Los boletos consisten en combinaciones de hasta seis cifras, a partir de 53 números. ¿Cuántos boletos diferentes surgen de una lotería así?
+
+Resolvamos esta cuestión con la regla de conteo para combinaciones:
+
+$$
+C_6^{53}=\left(\begin{array}{c}53\\6 \end{array} \right)=\frac{53!}{6!(53-6)!}=22'957,480
+$$
+
+Existen casi 23 millones de boletos. Significa que una persona que compra un solo boleto tiene una posibilidad en casi 23 millones de ganar.
+
+#### Permutaciones  
+Dicha regla permite calcular el número de resultados cuando se seleccionan $n$ objetos de un conjunto de $N$ objetos y el orden de selección es _relevante_.
+
+> El número de permutaciones de $N$ objetos tomados de $n$ en $n$ está dado por:
+$$
+P_n^N=n!\left(\begin{array}{c}N\\ n \end{array} \right)=\frac{N!}{(N-n)!}
+$$
+
+Retomando el ejemplo del inspector y las seis piezas, veamos cuántas posibles permutaciones (o combinaciones con orden relavante) pueden salir:
+
+$$
+P_2^5=\frac{6!}{(6-2)!}=\frac{6!}{3!}=\frac{720}{6}=120
+$$
+
+### Asignación de probabilidades  
+Antes de asignar probabilidades es importante recordar dos puntos:
+
+1. Toda probabilidad debe estar entre 0 y 1.
+2. La suma de las probabilidades de todos los resultados debe ser igual a 1.
+
+Existen tres maneras de asignar probabilidades a los resultados experimentales, los cuales son el _método clásico_, el de _frecuencia relativa_ y el _subjetivo_.
+
+#### Método clásico  
+Se aplica cuando todos los resultados tienen la misma posibilidad. Es decir, si se tienen $n$ posibles resultados, la probabilidad asignada a cada uno es $1/n$. Como ejemplos clásicos tenemos el lanzamiento de una moneda (cada resultado tiene $1/2$ de probabilidad de ocurrir), de un dado ($1/6$) o la probabilidad de sacar un as de un mazo de cartas españolas ($1/52$).
+
+#### Método de frecuencia relativa    
+Es el más conveniente cuando existen datos para estimar la proporción de veces que se presentarán los resultados si el experimento se repite muchas veces. Por ejemplo, un estudio sobre los tiempos de espera en el departamento de rayos $x$ de un hospital pequeño. Durante 20 días sucesivos un empleado registra el número de personas que están esperando el servicio a las 9:00am; los resultados son los siguientes.
+
+Número de personas que esperan|Número de días: resultados de ocurrencia 
+:---:|:---:
+0 	2 
+1 	5 
+2 	6 
+3 	4 
+4 	3 
+ |Total = 20 
+
+Podemos notar que de los 20 días, en dos había nadie esperando; en cinco días había un paciente; en seis había dos pacientes y así sucesivamente. Para saber la probabilidad de que un día dado haya nadie esperando, simplemente sacamos la frecuencia relativa de dicha situación: $P(0)=2/20=0.10$. La probabilidad de que un día haya cuatro personas esperando su turno a las 9:00am es $3/20$, es decir, $P(4)=3/20=0.15$.
+
+#### Método subjetivo
+Es el más indicado cuando no es factible suponer que todos los resultados de un experimento sean igualmente posibles y, además, cuenta con pocos datos relevantes. Usa toda la información disponible, por ejemplo, la propia experiencia o la intuición. Después de considerar dicha información se asigna un valor de probabilidad que expresa el grado de confianza (en una escala de 0 a 1) que tiene acerca de que un resultado experimental ocurra. Como la probabilidad subjetiva expresa el grado de confianza que tiene un individuo, es personal. Cuando se usa el método de probabilidad subjetiva, es de esperarse que personas distintas asignen probabilidades diferentes a los mismos resultados de un experimento.
+
+## Relaciones básicas de probabilidad
+
+### Complemento de un evento
+
+Dado un evento $A$, el complemento de $A$ se define como el evento que consta de todos los puntos muestrales que no están en $A$. El complemento de $A$ se denota $A_c$.
+
