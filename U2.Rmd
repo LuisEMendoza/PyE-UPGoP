@@ -155,4 +155,9 @@ Resultados experimentales|Duración
 Recordemos que se fijó una meta de terminación del proyecto en diez meses. De los nueve posibles resultados, seis cumplen con dicho propósito. Por lo tanto, la probabilidad de terminar dentro de lo fijado es $6/9=0.6667=66.67\%$.
 
 #### Combinaciones
-Permite conocer el número de resultados experimentales
+Permite conocer el número de resultados experimentales cuando el propio experimento consiste en seleccionar $n$ objetos de un conjunto usualmente mayor de $N$ objetos.
+
+> El número de combinaciones de $N$ objetos tomados de $n$ en $n$ es:
+$$
+C_n^n=
+$$
