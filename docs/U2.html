@@ -394,6 +394,9 @@ div.tocify {
     <li>
       <a href="U1-EP1.html">EP1</a>
     </li>
+    <li>
+      <a href="U1-EP2.html">EP2</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -444,13 +447,13 @@ S_{monedas}=\{(A,A),(A,B),(B,A),(B,B) \}
 </blockquote>
 <p>Si retomamos el caso anterior, lanzar la primera moneda implica <span class="math inline">\((n_1=2)\)</span> y la segunda <span class="math inline">\((n_2=2)\)</span>, siguiendo la regla de conteo <span class="math inline">\((2)(2)=4\)</span>, así que tenemos cuatro posibles resultados. Ahora bien, si por ejemplo lanzamos tres monedas, tendremos <span class="math inline">\((2)(2)(2)=8\)</span> resultados experimentales.</p>
 <p>Un diagrama que puede apoyar en la elaboración de reglas de conteo es el <strong>diagrama de árbol</strong>, el cual se muestra a continuación para el problema del lanzamiento de dos monedas.</p>
-<div id="htmlwidget-7e220c5cb6482dfa348b" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7e220c5cb6482dfa348b">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"M\"]\na\n\nnode [fillcolor = white,\n      label = \"A\"]\nb d f\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c}\nb -> {d e}\nc -> {f g}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8fecf47f3bc4249c66f7" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8fecf47f3bc4249c66f7">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"M\"]\na\n\nnode [fillcolor = white,\n      label = \"A\"]\nb d f\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c}\nb -> {d e}\nc -> {f g}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>La secuencia va de izquierda a derecha, donde el primer paso representa los posibles resultados del primer lanzamiento y el segundo al de la segunda moneda. En cada paso los dos posibles resultados son <span class="math inline">\((A,B)\)</span>, y podemos notar que a cada resultado del primer paso le corresponden otros dos posibles resultados: los del segundo lanzamiento. Cada uno de los extremos de la derecha se corresponde con un resultado experimental. Cada ruta, saliendo desde el inicio hasta cada una de las ramificaciones se corresponde con una secuencia única de resultados experimentales.</p>
 <p>Veamos ahora otro ejemplo donde podemos aplicar la regla de conteo con experimentos de pasos múltiples. Una empresa ha comenzado un proyecto que busca incrementar la capacidad de generación de una de sus plantas. El proyecto ha sido dividido en dos etapas: diseño y construcción. A los administrativos no les resultó posible definir el tiempo exacto requerido en cada una de las tareas que conforman las dos etapas, debido a que es la primera vez que se enfrentan a ese tipo de proyectos. Por analogía con otros proyectos, han estimado que la duración de la etapa de diseño podría durar dos, tres o cuatro meses; mientras que la construcción tardaría seis, siete u ocho meses. Los directivos han establecido como meta la terminación del proyecto en diez meses.</p>
 <p>Apliquemos la regla de conteo: existen tres posibles resultados en el diseño y otros tres posibles resultados en la construcción: <span class="math inline">\((3)(3)=9\)</span>. Describiremos los posibles resutados con una notación de dos números, el primero para la etapa 1 y el segundo para la 2. Así, <span class="math inline">\((2,6)\)</span> implica que el diseño tardó dos meses y la construcción, seis; dando una duración de ocho meses. Mostremos todo el espacio muestral con el diagrama de árbol pertinente:</p>
-<div id="htmlwidget-dbe6c941212629d19a9c" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dbe6c941212629d19a9c">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = UD]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"D\"]\na\n\nnode [fillcolor = white,\n      label = \"2\"]\nb\n\nnode [fillcolor = white,\n      label = \"3\"]\nc\n\nnode [fillcolor = white,\n      label = \"4\"]\nd\n\nnode [fillcolor = white,\n      label = \"6\"]\ne h k\n\nnode [fillcolor = white,\n      label = \"7\"]\nf i l\n\nnode [fillcolor = white,\n      label = \"8\"]\ng j m\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c d}\nb -> {e f g}\nc -> {h i j}\nd -> {k l m}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-06e695617302e4050d46" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-06e695617302e4050d46">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = UD]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"D\"]\na\n\nnode [fillcolor = white,\n      label = \"2\"]\nb\n\nnode [fillcolor = white,\n      label = \"3\"]\nc\n\nnode [fillcolor = white,\n      label = \"4\"]\nd\n\nnode [fillcolor = white,\n      label = \"6\"]\ne h k\n\nnode [fillcolor = white,\n      label = \"7\"]\nf i l\n\nnode [fillcolor = white,\n      label = \"8\"]\ng j m\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c d}\nb -> {e f g}\nc -> {h i j}\nd -> {k l m}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Como podemos observar, hay nueve combinaciones o duraciones para este proyecto. Tabulémoslas:</p>
 <table>
 <thead>
@@ -506,6 +509,7 @@ S_{monedas}=\{(A,A),(A,B),(B,A),(B,B) \}
 <blockquote>
 <p>El número de combinaciones de <span class="math inline">\(N\)</span> objetos tomados de <span class="math inline">\(n\)</span> en <span class="math inline">\(n\)</span> es: <span class="math display">\[
 C_n^n= \left( \begin{array}{c}N\\ n \end{array}  \right) = \frac{N!}{n!(N-n)!}\\
+\ \\
 Donde: N!=N(N-1)(N-2)...(2)(1)\\
 n!=n(n-1)(n-2)...(2)(1)\\
 0!=1
@@ -538,9 +542,9 @@ ncol(c) #solo queremos que nos cuente las columnas y nos lo diga</code></pre>
 <p><span class="math display">\[
 C_6^{53}=\left(\begin{array}{c}53\\6 \end{array} \right)=\frac{53!}{6!(53-6)!}=22&#39;957,480
 \]</span></p>
-<pre class="r"><code>c &lt;- combn(6,2) #asignemos el resultado a una variable &#39;c&#39;
+<pre class="r"><code>c &lt;- combn(53,6) #asignemos el resultado a una variable &#39;c&#39;
 ncol(c) #solo queremos que nos cuente las columnas y nos lo diga</code></pre>
-<pre><code>## [1] 15</code></pre>
+<pre><code>## [1] 22957480</code></pre>
 <p>Existen casi 23 millones de boletos. Significa que una persona que compra un solo boleto tiene una posibilidad en casi 23 millones de ganar. Dicha regla permite calcular el número de resultados cuando se seleccionan <span class="math inline">\(n\)</span> objetos</p>
 </div>
 <div id="permutaciones-de-un-conjunto-de-n-objetos-y-el-orden-de-seleccion-es-relevante." class="section level4">
@@ -579,9 +583,32 @@ P_2^5=\frac{6!}{(6-2)!}=\frac{6!}{3!}=\frac{720}{6}=120
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">5</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">6</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">4</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">3</td>
+</tr>
+<tr class="even">
+<td align="center">Total = 20</td>
+<td align="center"></td>
+</tr>
 </tbody>
 </table>
-<p>0 2 1 5 2 6 3 4 4 3 |Total = 20</p>
 <p>Podemos notar que de los 20 días, en dos había nadie esperando; en cinco días había un paciente; en seis había dos pacientes y así sucesivamente. Para saber la probabilidad de que un día dado haya nadie esperando, simplemente sacamos la frecuencia relativa de dicha situación: <span class="math inline">\(P(0)=2/20=0.10\)</span>. La probabilidad de que un día haya cuatro personas esperando su turno a las 9:00am es <span class="math inline">\(3/20\)</span>, es decir, <span class="math inline">\(P(4)=3/20=0.15\)</span>.</p>
 </div>
 <div id="metodo-subjetivo" class="section level4">
