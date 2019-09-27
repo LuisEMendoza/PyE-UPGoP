@@ -85,5 +85,74 @@ c -> {f g}
 
 La secuencia va de izquierda a derecha, donde el primer paso representa los posibles resultados del primer lanzamiento y el segundo al de la segunda moneda. En cada paso los dos posibles resultados son $(A,B)$, y podemos notar que a cada resultado del primer paso le corresponden otros dos posibles resultados: los del segundo lanzamiento. Cada uno de los extremos de la derecha se corresponde con un resultado experimental. Cada ruta, saliendo desde el inicio hasta cada una de las ramificaciones se corresponde con una secuencia única de resultados experimentales.
 
-Veamos ahora otro ejemplo donde podemos aplicar la regla de conteo
+Veamos ahora otro ejemplo donde podemos aplicar la regla de conteo con experimentos de pasos múltiples. Una empresa ha comenzado un proyecto que busca incrementar la capacidad de generación de una de sus plantas. El proyecto ha sido dividido en dos etapas: diseño y construcción. A los administrativos no les resultó posible definir el tiempo exacto requerido en cada una de las tareas que conforman las dos etapas, debido a que es la primera vez que se enfrentan a ese tipo de proyectos. Por analogía con otros proyectos, han estimado que la duración de la etapa de diseño podría durar dos, tres o cuatro meses; mientras que la construcción tardaría seis, siete u ocho meses. Los directivos han establecido como meta la terminación del proyecto en diez meses. 
 
+Apliquemos la regla de conteo: existen tres posibles resultados en el diseño y otros tres posibles resultados en la construcción: $(3)(3)=9$. Describiremos los posibles resutados con una notación de dos números, el primero para la etapa 1 y el segundo para la 2. Así, $(2,6)$ implica que el diseño tardó dos meses y la construcción, seis; dando una duración de ocho meses. Mostremos todo el espacio muestral con el diagrama de árbol pertinente:
+
+```{r echo=FALSE}
+grViz("
+digraph dot {
+
+graph [layout = dot, rankdir = UD]
+
+node [shape = circle,
+      style = filled,
+      label = '']
+
+node [fillcolor = white,
+      label = 'D']
+a
+
+node [fillcolor = white,
+      label = '2']
+b
+
+node [fillcolor = white,
+      label = '3']
+c
+
+node [fillcolor = white,
+      label = '4']
+d
+
+node [fillcolor = white,
+      label = '6']
+e h k
+
+node [fillcolor = white,
+      label = '7']
+f i l
+
+node [fillcolor = white,
+      label = '8']
+g j m
+
+node [fillcolor = white
+      label = 'B']
+
+edge [color = black]
+a -> {b c d}
+b -> {e f g}
+c -> {h i j}
+d -> {k l m}
+}")
+```
+
+Como podemos observar, hay nueve combinaciones o duraciones para este proyecto. Tabulémoslas:
+
+Resultados experimentales|Duración
+:---:|:---:
+(2,6)|8
+(2,7)|9
+(2,8)|10
+(3,6)|9
+(3,7)|10
+(3,8)|11
+(4,6)|10
+(4,7)|11
+(4,8)|12
+
+Recordemos que se fijó una meta de terminación del proyecto en diez meses. De los nueve posibles resultados, seis cumplen con dicho propósito. Por lo tanto, la probabilidad de terminar dentro de lo fijado es $6/9=0.6667=66.67\%$.
+
+#### Combinaciones
+Permite conocer el número de resultados experimentales
