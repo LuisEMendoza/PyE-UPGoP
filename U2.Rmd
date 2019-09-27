@@ -33,6 +33,7 @@ O en el caso de un dado:
 $$
 S_{dado}=\{1,2,3,4,5,6\}
 $$
+
 ### Reglas de conteo
 
 Veamos cómo se identifican y cuentan los resultados experimentales. Existen tres reglas de conteo que son muy utilizadas.
