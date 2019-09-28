@@ -447,13 +447,13 @@ S_{monedas}=\{(A,A),(A,B),(B,A),(B,B) \}
 </blockquote>
 <p>Si retomamos el caso anterior, lanzar la primera moneda implica <span class="math inline">\((n_1=2)\)</span> y la segunda <span class="math inline">\((n_2=2)\)</span>, siguiendo la regla de conteo <span class="math inline">\((2)(2)=4\)</span>, así que tenemos cuatro posibles resultados. Ahora bien, si por ejemplo lanzamos tres monedas, tendremos <span class="math inline">\((2)(2)(2)=8\)</span> resultados experimentales.</p>
 <p>Un diagrama que puede apoyar en la elaboración de reglas de conteo es el <strong>diagrama de árbol</strong>, el cual se muestra a continuación para el problema del lanzamiento de dos monedas.</p>
-<div id="htmlwidget-c8942d81ff0d906ab3a5" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c8942d81ff0d906ab3a5">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"M\"]\na\n\nnode [fillcolor = white,\n      label = \"A\"]\nb d f\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c}\nb -> {d e}\nc -> {f g}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d826e5a9a777d12bfd3d" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d826e5a9a777d12bfd3d">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"M\"]\na\n\nnode [fillcolor = white,\n      label = \"A\"]\nb d f\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c}\nb -> {d e}\nc -> {f g}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>La secuencia va de izquierda a derecha, donde el primer paso representa los posibles resultados del primer lanzamiento y el segundo al de la segunda moneda. En cada paso los dos posibles resultados son <span class="math inline">\((A,B)\)</span>, y podemos notar que a cada resultado del primer paso le corresponden otros dos posibles resultados: los del segundo lanzamiento. Cada uno de los extremos de la derecha se corresponde con un resultado experimental. Cada ruta, saliendo desde el inicio hasta cada una de las ramificaciones se corresponde con una secuencia única de resultados experimentales.</p>
 <p>Veamos ahora otro ejemplo donde podemos aplicar la regla de conteo con experimentos de pasos múltiples. Una empresa ha comenzado un proyecto que busca incrementar la capacidad de generación de una de sus plantas. El proyecto ha sido dividido en dos etapas: diseño y construcción. A los administrativos no les resultó posible definir el tiempo exacto requerido en cada una de las tareas que conforman las dos etapas, debido a que es la primera vez que se enfrentan a ese tipo de proyectos. Por analogía con otros proyectos, han estimado que la duración de la etapa de diseño podría durar dos, tres o cuatro meses; mientras que la construcción tardaría seis, siete u ocho meses. Los directivos han establecido como meta la terminación del proyecto en diez meses.</p>
 <p>Apliquemos la regla de conteo: existen tres posibles resultados en el diseño y otros tres posibles resultados en la construcción: <span class="math inline">\((3)(3)=9\)</span>. Describiremos los posibles resutados con una notación de dos números, el primero para la etapa 1 y el segundo para la 2. Así, <span class="math inline">\((2,6)\)</span> implica que el diseño tardó dos meses y la construcción, seis; dando una duración de ocho meses. Mostremos todo el espacio muestral con el diagrama de árbol pertinente:</p>
-<div id="htmlwidget-73d544286a67591ffbe8" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-73d544286a67591ffbe8">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = UD]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"D\"]\na\n\nnode [fillcolor = white,\n      label = \"2\"]\nb\n\nnode [fillcolor = white,\n      label = \"3\"]\nc\n\nnode [fillcolor = white,\n      label = \"4\"]\nd\n\nnode [fillcolor = white,\n      label = \"6\"]\ne h k\n\nnode [fillcolor = white,\n      label = \"7\"]\nf i l\n\nnode [fillcolor = white,\n      label = \"8\"]\ng j m\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c d}\nb -> {e f g}\nc -> {h i j}\nd -> {k l m}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8fda67b638c6d43f60a1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8fda67b638c6d43f60a1">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = UD]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"D\"]\na\n\nnode [fillcolor = white,\n      label = \"2\"]\nb\n\nnode [fillcolor = white,\n      label = \"3\"]\nc\n\nnode [fillcolor = white,\n      label = \"4\"]\nd\n\nnode [fillcolor = white,\n      label = \"6\"]\ne h k\n\nnode [fillcolor = white,\n      label = \"7\"]\nf i l\n\nnode [fillcolor = white,\n      label = \"8\"]\ng j m\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c d}\nb -> {e f g}\nc -> {h i j}\nd -> {k l m}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Como podemos observar, hay nueve combinaciones o duraciones para este proyecto. Tabulémoslas:</p>
 <table>
 <thead>
@@ -668,6 +668,39 @@ P(S\cup T)=P(S)+P(T)
 <p>Ya que no existe una intersección como tal, por ende no es necesario eliminarla.</p>
 <p><img src="images/20-cup-me.png" /></p>
 </div>
+</div>
+<div id="probabilidad-condicional" class="section level2">
+<h2>Probabilidad condicional</h2>
+<p>En ocasiones sucede que en la probabilidad de un evento cualquiera <span class="math inline">\(A\)</span> influye el hecho de que otro evento <span class="math inline">\(B\)</span>, relacionados ambos, ya ha ocurrido. Esto implica que el cálculo de la probabilidad de <span class="math inline">\(A\)</span> <span class="math inline">\(P(A)\)</span> se mira afectado y ésta es diferente. A esta condición se le conoce como <strong>probabilidad condicional</strong> y se denota por <span class="math inline">\(P(A|B)\)</span>. Se está considerando la probabilidad de <span class="math inline">\(A\)</span> dada la condición de que <span class="math inline">\(B\)</span> ya ha ocurrido. Se lee <em>probabilidad de <span class="math inline">\(A\)</span> dado <span class="math inline">\(B\)</span></em>.</p>
+<p>Como ejemplo de la probabilidad condicional, considere el caso de las promociones de los agentes de policía de una determinada ciudad. La fuerza policiaca consta de 1200 agentes, 960 hombres y 240 mujeres. De éstos, en los últimos dos años, fueron promovidos 340. En la tabla se muestra cómo quedaron repartidas estas promociones entre los hombres y mujeres.</p>
+<p>-|Hombre|Mujer|Total <em>Promovido</em>|288|36|324 <em>No promovido</em>|672|204|876 <em>Total</em>|960|240|1200</p>
+<p>Después de analizar el registro de las promociones, un comité femenil protestó, ya que habían sido promovidos 288 agentes hombres, frente a sólo 36 mujeres. Los directivos de la fuerza policiaca argumentaron que el número de mujeres promovidas no se debía a una discriminación, sino a que el número de mujeres que son agentes de policía es una cantidad pequeña. Ahora veamos cómo emplear la probabilidad condicional para analizar esta acusación de discriminación.</p>
+<div id="solucion" class="section level4">
+<h4>Solución</h4>
+<p>Sea <span class="math inline">\(H=\)</span> el evento de que el agente sea hombre; <span class="math inline">\(M=\)</span> el evento de que sea mujer; <span class="math inline">\(A=\)</span> el evento de ser promovido y <span class="math inline">\(A^c=\)</span> el evento de no ser promovido. Calculemos las <strong>probabilidades conjuntas</strong>, esto es, la probabilidad de la intersección de dos eventos:</p>
+<p><span class="math display">\[
+P(H\cap A)=\frac{288}{1200}=0.24\\
+P(H\cap A^c)= \frac{672}{1200}=0.56\\
+P(M\cap A)=\frac{36}{1200}=0.03\\
+P(M\cap A^c)=\frac{204}{1200}=0.17
+\]</span></p>
+<p>Armemos una tabla de probabilidades conjuntas y <strong>probabilidades marginales</strong>, esto es, las probabilidad de cada evento por separado:</p>
+<p>-|Hombre|Mujer|Probabilidad marginal <em>Promovido</em>|0.24|0.03|0.27 <em>No promovido</em>|0.56|0.17|0.73 <em>Probabilidad marginal</em>|0.80|0.20|1.00</p>
+<blockquote>
+<p>La probabilidad condicional se calcula así: <span class="math display">\[
+P(A|B)=\frac{P(A\cap B)}{P(b)}
+\]</span></p>
+</blockquote>
+</div>
+<div id="eventos-independientes" class="section level3">
+<h3>Eventos independientes</h3>
+</div>
+<div id="ley-de-la-multiplicacion" class="section level3">
+<h3>Ley de la multiplicación</h3>
+</div>
+</div>
+<div id="teorema-de-bayes" class="section level2">
+<h2>Teorema de Bayes</h2>
 </div>
 
 
