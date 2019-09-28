@@ -261,6 +261,7 @@ Es el más indicado cuando no es factible suponer que todos los resultados de un
 Dado un evento $A$, el complemento de $A$ se define como el evento que consta de todos los puntos muestrales que no están en $A$. El complemento de $A$ se denota $A^c$. En la siguiente figura se observa un __diagrama de Venn__, el cual representa todo el espacio muestral con el rectángulo, mientras los puntos muestrales que pertenecen al evento _A_, están encerrados en el círculo. Por definición, todo lo restante del espacio muestral que no está dentro del círculo representa el evento complementario de $A$.
 
 ![](images/018-complementoA.png)
+
 En cualquier evento probabilístico ocurre $A$ o su complemento $A^c$. Por lo tanto:
 
 $$
