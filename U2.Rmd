@@ -262,11 +262,68 @@ Dado un evento $A$, el complemento de $A$ se define como el evento que consta de
 
 ![](images/018-complementoA.png)
 
-En cualquier evento probabilístico ocurre $A$ o su complemento $A^c$. Por lo tanto:
-
+> En cualquier evento probabilístico ocurre $A$ o su complemento $A^c$. Por lo tanto, el cálculo de una probabilidad usando su complemento es: 
 $$
 P(A)+P(A^C)=1\\
 o \\
 P(A)=1-P(A^C)
 $$
+
+
+### Ley de la adición
+
+Sirve para determinar la probabilidad de que ocurra por lo menos uno de dos eventos. Por ejemplo, si tenemos dos eventos $A$ y $B$, nos interesa saber la probabilidad de que ocurra $A$ o $B$ o ambos. Pero antes debemos entender dos conceptos relacionados y fundamentales: la _unión_ y la _intersección_ de dos eventos.
+
+> La unión de dos eventos $A$ y $B$ es el evento que contiene todos los puntos muestrales que pertenecen a $A$ o a $B$ o a ambos. Se denota por $A \cup B$.
+
+![](images/019-unionAB.png)
+
+Es importante notar que el diagrama de Venn muestra que ambos círculos están traslapados, lo que implica que existen puntos muestrales contenidos tanto en $A$ como en $B$.
+
+> La intersección de dos eventos es el evento que contiene los puntos muestrales que pertenecen tanto a $A$ como a $B$. Se denota por $A\cap B$
+
+![](images/20-cap.png)
+
+A diferencia de la unión que incluye a todos los puntos que pertenecen a $A$ y a $B$, la intersección solo incluye a los puntos que pertenecen a ambos eventos al mismo tiempo.
+
+Ya podemos abordar la ley de la adición, la cual podemos definir como la manera de calcular la probabilidad de que ocurra la unión de dos eventos. Se expresa de la siguiente manera:
+
+$$
+P(A\cup B)=P(A)+P(B)-P(A\cap B)
+$$
+
+Debe restarse la intersección, ya que de no hacerlo, se contarían dos veces los puntos muestrales contenidos allí. Veamos un ejemplo. 
+
+El director de personal de una empresa ha realizado un estudio que encontró que 15 de los empleados que se van antes de dos años, lo hacen por incorfomidad con el salario; 10 se van por estar descontentos con el trabajo y 6 por estar insatisfechos con ambas cosas. ¿Cuál es la probabilidad de que de 50 empleados, uno se marche de la empresa antes de dos años por insatisfacción con el salario, el trabajo o ambas cosas?
+
+Definamos la insatisfacción con el salario como $S$ y la insatisfacción con el trabajo como $T$. Ahora calculamos la probabilidad de cada evento por separado:
+
+$$
+P(S)=\frac{15}{50}=0.30\\
+P(T)=\frac{10}{50}=0.20\\
+P(S\cap T)= \frac {6}{50}=0.12
+$$
+
+Apliquemos la ley de la adición para dar respuesta al problema:
+
+$$
+P(S\cup T)=P(S)+P(T)-P(S\cap T)=0.30+0.20-0.12=0.38
+$$
+
+Así, la probabilidad de que un empleado se vaya de la empresa por inconformidad con el salario o el trabajo, o ambos, es de 0.38, o del 38%.
+
+Para dar por terminado el tema, debemos mencionar el caso en el que los dos eventos $A$ y $B$ son __mutuamente excluyentes__, es decir, que si uno ocurre, el segundo no puede ocurrir. Un caso típico es ser empleado o no serlo, estar vivo o muerto, etcétera. La ley de la adición para estos casos queda:
+
+$$
+P(S\cup T)=P(S)+P(T)
+$$
+
+Ya que no existe una intersección como tal, por ende no es necesario eliminarla.
+
+![](images/20-cup-me.png)
+
+
+
+
+
 
