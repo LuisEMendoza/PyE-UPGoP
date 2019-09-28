@@ -247,7 +247,7 @@ Número de personas que esperan|Número de días: resultados de ocurrencia
 2 |	6 
 3 |	4 
 4 |	3 
-  |Total = 20 
+    |Total = 20 
 
 Podemos notar que de los 20 días, en dos había nadie esperando; en cinco días había un paciente; en seis había dos pacientes y así sucesivamente. Para saber la probabilidad de que un día dado haya nadie esperando, simplemente sacamos la frecuencia relativa de dicha situación: $P(0)=2/20=0.10$. La probabilidad de que un día haya cuatro personas esperando su turno a las 9:00am es $3/20$, es decir, $P(4)=3/20=0.15$.
 
@@ -258,5 +258,14 @@ Es el más indicado cuando no es factible suponer que todos los resultados de un
 
 ### Complemento de un evento
 
-Dado un evento $A$, el complemento de $A$ se define como el evento que consta de todos los puntos muestrales que no están en $A$. El complemento de $A$ se denota $A_c$.
+Dado un evento $A$, el complemento de $A$ se define como el evento que consta de todos los puntos muestrales que no están en $A$. El complemento de $A$ se denota $A^c$. En la siguiente figura se observa un __diagrama de Venn__, el cual representa todo el espacio muestral con el rectángulo, mientras los puntos muestrales que pertenecen al evento _A_, están encerrados en el círculo. Por definición, todo lo restante del espacio muestral que no está dentro del círculo representa el evento complementario de $A$.
+
+![](images/018-complementoA.png)
+En cualquier evento probabilístico ocurre $A$ o su complemento $A^c$. Por lo tanto:
+
+$$
+P(A)+P(A^C)=1\\
+o \\
+P(A)=1-P(A^C)
+$$
 

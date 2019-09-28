@@ -7,7 +7,7 @@ output:
 ---
 
 Los siguientes ejercicios deben ser realizados en dos formas, primero de manera manual y posteriormente por medio de software. Al ser realizados a mano, deben ser hechos con limpieza y orden, para posteriormente ser digitalizados por el método que tengan a su alcance. Al ser realizados por medio de software se recomienda el uso de RSTudio para la resolución de los problemas y la generación del documento a entregar. La combinación de ambos documentos debe ser enviada en una carpeta comprimida a la plataforma habilitada para tal uso. No se admiten evidencias en físico. 
-
+  
 Para descargar una versión offline (pdf), dar clic [aquí](https://github.com/LuisEMendoza/PyE-UPGoP/blob/master/docs/U1-EP1-PDF.pdf)
 
 ## Tablas de frecuencia
