@@ -447,13 +447,13 @@ S_{monedas}=\{(A,A),(A,B),(B,A),(B,B) \}
 </blockquote>
 <p>Si retomamos el caso anterior, lanzar la primera moneda implica <span class="math inline">\((n_1=2)\)</span> y la segunda <span class="math inline">\((n_2=2)\)</span>, siguiendo la regla de conteo <span class="math inline">\((2)(2)=4\)</span>, así que tenemos cuatro posibles resultados. Ahora bien, si por ejemplo lanzamos tres monedas, tendremos <span class="math inline">\((2)(2)(2)=8\)</span> resultados experimentales.</p>
 <p>Un diagrama que puede apoyar en la elaboración de reglas de conteo es el <strong>diagrama de árbol</strong>, el cual se muestra a continuación para el problema del lanzamiento de dos monedas.</p>
-<div id="htmlwidget-1362865e5917ec457c2c" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1362865e5917ec457c2c">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"M\"]\na\n\nnode [fillcolor = white,\n      label = \"A\"]\nb d f\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c}\nb -> {d e}\nc -> {f g}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c8942d81ff0d906ab3a5" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c8942d81ff0d906ab3a5">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"M\"]\na\n\nnode [fillcolor = white,\n      label = \"A\"]\nb d f\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c}\nb -> {d e}\nc -> {f g}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>La secuencia va de izquierda a derecha, donde el primer paso representa los posibles resultados del primer lanzamiento y el segundo al de la segunda moneda. En cada paso los dos posibles resultados son <span class="math inline">\((A,B)\)</span>, y podemos notar que a cada resultado del primer paso le corresponden otros dos posibles resultados: los del segundo lanzamiento. Cada uno de los extremos de la derecha se corresponde con un resultado experimental. Cada ruta, saliendo desde el inicio hasta cada una de las ramificaciones se corresponde con una secuencia única de resultados experimentales.</p>
 <p>Veamos ahora otro ejemplo donde podemos aplicar la regla de conteo con experimentos de pasos múltiples. Una empresa ha comenzado un proyecto que busca incrementar la capacidad de generación de una de sus plantas. El proyecto ha sido dividido en dos etapas: diseño y construcción. A los administrativos no les resultó posible definir el tiempo exacto requerido en cada una de las tareas que conforman las dos etapas, debido a que es la primera vez que se enfrentan a ese tipo de proyectos. Por analogía con otros proyectos, han estimado que la duración de la etapa de diseño podría durar dos, tres o cuatro meses; mientras que la construcción tardaría seis, siete u ocho meses. Los directivos han establecido como meta la terminación del proyecto en diez meses.</p>
 <p>Apliquemos la regla de conteo: existen tres posibles resultados en el diseño y otros tres posibles resultados en la construcción: <span class="math inline">\((3)(3)=9\)</span>. Describiremos los posibles resutados con una notación de dos números, el primero para la etapa 1 y el segundo para la 2. Así, <span class="math inline">\((2,6)\)</span> implica que el diseño tardó dos meses y la construcción, seis; dando una duración de ocho meses. Mostremos todo el espacio muestral con el diagrama de árbol pertinente:</p>
-<div id="htmlwidget-628dae9cf3012aaf24ad" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-628dae9cf3012aaf24ad">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = UD]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"D\"]\na\n\nnode [fillcolor = white,\n      label = \"2\"]\nb\n\nnode [fillcolor = white,\n      label = \"3\"]\nc\n\nnode [fillcolor = white,\n      label = \"4\"]\nd\n\nnode [fillcolor = white,\n      label = \"6\"]\ne h k\n\nnode [fillcolor = white,\n      label = \"7\"]\nf i l\n\nnode [fillcolor = white,\n      label = \"8\"]\ng j m\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c d}\nb -> {e f g}\nc -> {h i j}\nd -> {k l m}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-73d544286a67591ffbe8" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-73d544286a67591ffbe8">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot, rankdir = UD]\n\nnode [shape = circle,\n      style = filled,\n      label = \"\"]\n\nnode [fillcolor = white,\n      label = \"D\"]\na\n\nnode [fillcolor = white,\n      label = \"2\"]\nb\n\nnode [fillcolor = white,\n      label = \"3\"]\nc\n\nnode [fillcolor = white,\n      label = \"4\"]\nd\n\nnode [fillcolor = white,\n      label = \"6\"]\ne h k\n\nnode [fillcolor = white,\n      label = \"7\"]\nf i l\n\nnode [fillcolor = white,\n      label = \"8\"]\ng j m\n\nnode [fillcolor = white\n      label = \"B\"]\n\nedge [color = black]\na -> {b c d}\nb -> {e f g}\nc -> {h i j}\nd -> {k l m}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Como podemos observar, hay nueve combinaciones o duraciones para este proyecto. Tabulémoslas:</p>
 <table>
 <thead>
@@ -623,12 +623,50 @@ P_2^5=\frac{6!}{(6-2)!}=\frac{6!}{3!}=\frac{720}{6}=120
 <h3>Complemento de un evento</h3>
 <p>Dado un evento <span class="math inline">\(A\)</span>, el complemento de <span class="math inline">\(A\)</span> se define como el evento que consta de todos los puntos muestrales que no están en <span class="math inline">\(A\)</span>. El complemento de <span class="math inline">\(A\)</span> se denota <span class="math inline">\(A^c\)</span>. En la siguiente figura se observa un <strong>diagrama de Venn</strong>, el cual representa todo el espacio muestral con el rectángulo, mientras los puntos muestrales que pertenecen al evento <em>A</em>, están encerrados en el círculo. Por definición, todo lo restante del espacio muestral que no está dentro del círculo representa el evento complementario de <span class="math inline">\(A\)</span>.</p>
 <p><img src="images/018-complementoA.png" /></p>
-<p>En cualquier evento probabilístico ocurre <span class="math inline">\(A\)</span> o su complemento <span class="math inline">\(A^c\)</span>. Por lo tanto:</p>
-<p><span class="math display">\[
+<blockquote>
+<p>En cualquier evento probabilístico ocurre <span class="math inline">\(A\)</span> o su complemento <span class="math inline">\(A^c\)</span>. Por lo tanto, el cálculo de una probabilidad usando su complemento es: <span class="math display">\[
 P(A)+P(A^C)=1\\
 o \\
 P(A)=1-P(A^C)
 \]</span></p>
+</blockquote>
+</div>
+<div id="ley-de-la-adicion" class="section level3">
+<h3>Ley de la adición</h3>
+<p>Sirve para determinar la probabilidad de que ocurra por lo menos uno de dos eventos. Por ejemplo, si tenemos dos eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, nos interesa saber la probabilidad de que ocurra <span class="math inline">\(A\)</span> o <span class="math inline">\(B\)</span> o ambos. Pero antes debemos entender dos conceptos relacionados y fundamentales: la <em>unión</em> y la <em>intersección</em> de dos eventos.</p>
+<blockquote>
+<p>La unión de dos eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> es el evento que contiene todos los puntos muestrales que pertenecen a <span class="math inline">\(A\)</span> o a <span class="math inline">\(B\)</span> o a ambos. Se denota por <span class="math inline">\(A \cup B\)</span>.</p>
+</blockquote>
+<p><img src="images/019-unionAB.png" /></p>
+<p>Es importante notar que el diagrama de Venn muestra que ambos círculos están traslapados, lo que implica que existen puntos muestrales contenidos tanto en <span class="math inline">\(A\)</span> como en <span class="math inline">\(B\)</span>.</p>
+<blockquote>
+<p>La intersección de dos eventos es el evento que contiene los puntos muestrales que pertenecen tanto a <span class="math inline">\(A\)</span> como a <span class="math inline">\(B\)</span>. Se denota por <span class="math inline">\(A\cap B\)</span></p>
+</blockquote>
+<p><img src="images/20-cap.png" /></p>
+<p>A diferencia de la unión que incluye a todos los puntos que pertenecen a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>, la intersección solo incluye a los puntos que pertenecen a ambos eventos al mismo tiempo.</p>
+<p>Ya podemos abordar la ley de la adición, la cual podemos definir como la manera de calcular la probabilidad de que ocurra la unión de dos eventos. Se expresa de la siguiente manera:</p>
+<p><span class="math display">\[
+P(A\cup B)=P(A)+P(B)-P(A\cap B)
+\]</span></p>
+<p>Debe restarse la intersección, ya que de no hacerlo, se contarían dos veces los puntos muestrales contenidos allí. Veamos un ejemplo.</p>
+<p>El director de personal de una empresa ha realizado un estudio que encontró que 15 de los empleados que se van antes de dos años, lo hacen por incorfomidad con el salario; 10 se van por estar descontentos con el trabajo y 6 por estar insatisfechos con ambas cosas. ¿Cuál es la probabilidad de que de 50 empleados, uno se marche de la empresa antes de dos años por insatisfacción con el salario, el trabajo o ambas cosas?</p>
+<p>Definamos la insatisfacción con el salario como <span class="math inline">\(S\)</span> y la insatisfacción con el trabajo como <span class="math inline">\(T\)</span>. Ahora calculamos la probabilidad de cada evento por separado:</p>
+<p><span class="math display">\[
+P(S)=\frac{15}{50}=0.30\\
+P(T)=\frac{10}{50}=0.20\\
+P(S\cap T)= \frac {6}{50}=0.12
+\]</span></p>
+<p>Apliquemos la ley de la adición para dar respuesta al problema:</p>
+<p><span class="math display">\[
+P(S\cup T)=P(S)+P(T)-P(S\cap T)=0.30+0.20-0.12=0.38
+\]</span></p>
+<p>Así, la probabilidad de que un empleado se vaya de la empresa por inconformidad con el salario o el trabajo, o ambos, es de 0.38, o del 38%.</p>
+<p>Para dar por terminado el tema, debemos mencionar el caso en el que los dos eventos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son <strong>mutuamente excluyentes</strong>, es decir, que si uno ocurre, el segundo no puede ocurrir. Un caso típico es ser empleado o no serlo, estar vivo o muerto, etcétera. La ley de la adición para estos casos queda:</p>
+<p><span class="math display">\[
+P(S\cup T)=P(S)+P(T)
+\]</span></p>
+<p>Ya que no existe una intersección como tal, por ende no es necesario eliminarla.</p>
+<p><img src="images/20-cup-me.png" /></p>
 </div>
 </div>
 
