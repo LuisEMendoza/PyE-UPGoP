@@ -349,12 +349,28 @@ Armemos una tabla de probabilidades conjuntas y __probabilidades marginales__, e
 -|Hombre|Mujer|Probabilidad marginal
 _Promovido_|0.24|0.03|0.27
 _No promovido_|0.56|0.17|0.73
-_Probabilidad marginal_|0.80|0.20|1.00
+_Probabilidad marginal_|0.80|0.20|
+
+Las probabilidades marginales nos permiten conocer la probabilidad de ser _hombre_ $P(H)=0.80$, de ser _mujer_ $P(M)=0.20$, de ser promovido $P(A)=0.27$ y de no serlo $P(A^c)=0.73$. Toca mencionar la fórmula para calcular probabilidades condicionales:
 
 > La probabilidad condicional se calcula así:
 $$
 P(A|B)=\frac{P(A\cap B)}{P(b)}
 $$
+
+Calculemos pues la probabilidad de ser ascendido dado que se es hombre:
+
+$$
+P(A|H)=\frac{P(A\cap H)}{P(H)}=\frac{0.24}{0.80}=0.30
+$$
+
+Ahora calculemos la probabilidad condicional para el caso de las mujeres:
+
+$$
+P(A|M)=\frac{P(A\cap M)}{P(M)}=\frac{0.03}{0.20}=0.15
+$$
+
+Podemos darnos cuenta que la probabilidad de ser ascendido dado que se es mujer es la mitad de la probabilidad para el hombre. Esto no prueba cabalmente que exista discriminación, pero sí confirma las sospechas y el argumento de las mujeres. Dentro de lo que cabe, no existe justicia en los ascensos.
 
 ### Eventos independientes
 
