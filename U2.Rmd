@@ -355,7 +355,7 @@ Las probabilidades marginales nos permiten conocer la probabilidad de ser _hombr
 
 > La probabilidad condicional se calcula así:
 $$
-P(A|B)=\frac{P(A\cap B)}{P(b)}
+P(A|B)=\frac{P(A\cap B)}{P(B)}
 $$
 
 Calculemos pues la probabilidad de ser ascendido dado que se es hombre:
