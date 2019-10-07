@@ -437,13 +437,9 @@ P(S|A_1)=0.95\\
 $$
 
 $$
-
 Probabilidades\ condicionales\ C\\
-
 P(C|A_1)=0.02\\
-
 P(C|A_2)=0.05
-
 $$
 
 Representemos los posibles resultados, comenzamos con un árbol de probabilidades:
@@ -621,16 +617,12 @@ En este árbol podemos distinguir las __probabilidades conjuntas__ como los valo
 $$
 Probabilidades\ conjuntas\ S\\
 P(S\cap A_1)=0.6370\\
-
 P(S\cap A_2)=0.3325\\
-
 $$
 
 $$
 Probabilidades\ conjuntas\ C\\
-
 P(C\cap A_1)=0.0130\\
-
 P(C\cap A_2)=0.0175
 $$
 
