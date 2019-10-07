@@ -608,9 +608,11 @@ bayes_probability_tree <- function(prior, true_positive, true_negative) {
 }
 ```
 
-```{r}
+```{r echo=FALSE}
 bayes_probability_tree(prior = 0.65, true_positive = 0.98, true_negative = 0.05)
 ```
+
+![](images/021-bayes.png)
 
 En este árbol podemos distinguir las __probabilidades conjuntas__ como los valores que tienen las ramas.
 
