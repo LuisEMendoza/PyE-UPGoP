@@ -443,6 +443,7 @@ Probabilidades\ condicionales\ C\\
 P(C|A_1)=0.02\\
 
 P(C|A_2)=0.05
+
 $$
 
 Representemos los posibles resultados, comenzamos con un árbol de probabilidades:
