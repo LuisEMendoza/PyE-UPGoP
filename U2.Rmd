@@ -410,7 +410,7 @@ $$
 
 En la vida real se repite muy seguido el hecho de que las probabilidades involucran eventos relacionados entre sí. Y en muchas ocasiones, mientras se va recolectando información, es necesario modificar las __probabilidades previas__, obteniendo __probabilidades posteriores__. El __Teorema de Bayes__ nos permite obtener dichas probabilidades modificadas, después de haber utilizado información proveniente de otras fuentes. El flujo de trabajo quedaría entonces así:
 
-```{r}
+```{r echo=FALSE}
 mermaid("
 graph LR
 A[Probabilidades <br/> previas]-->B[Nueva<br/> información]
@@ -437,6 +437,7 @@ P(S|A_1)=0.95\\
 $$
 
 $$
+
 Probabilidades\ condicionales\ C\\
 
 P(C|A_1)=0.02\\
