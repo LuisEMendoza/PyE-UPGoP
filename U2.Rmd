@@ -223,7 +223,7 @@ $$
 Retomando el ejemplo del inspector y las seis piezas, veamos cuántas posibles permutaciones (o combinaciones con orden relavante) pueden salir:
 
 $$
-P_2^5=\frac{6!}{(6-2)!}=\frac{6!}{3!}=\frac{720}{6}=120
+P_2^6=\frac{6!}{(6-2)!}=\frac{6!}{4!}=\frac{720}{24}=30
 $$
 
 ### Asignación de probabilidades  
