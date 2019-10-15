@@ -4,8 +4,6 @@ title: "Evidencia de Producto 2"
 
 ## Consulta sobre conceptos básicos de Estadística
 
-Para descargar una versión offline (pdf), dar clic [aquí](https://github.com/LuisEMendoza/PyE-UPGoP/blob/master/docs/U1-EP2-PDF.pdf)
-
 Conteste las siguientes preguntas.
 
 1. ¿Qué es la Estadística?

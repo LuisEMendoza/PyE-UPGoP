@@ -2,8 +2,8 @@
 title: "Problemario EP1-U2"
 output:
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
 ---
 
 ## Experimentos, reglas de conteo y asignación de probabilidades
@@ -44,7 +44,7 @@ d. En la muestra, ¿qué proporción de los conductores provenía de cada regió
 127.6 millones mujeres. A continuación se presenta el número de participantes en los cinco deportes principales.
 
 ```{r echo=FALSE}
-deportes <- read.table("datasets/024-deportes.txt")
+deportes <- read.table("datasets/024-deportes.txt", header = T)
 deportes
 ```
 
