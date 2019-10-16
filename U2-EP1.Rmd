@@ -8,11 +8,11 @@ output:
 
 ## Experimentos, reglas de conteo y asignación de probabilidades
 
-1. Un experimento consta de cuatro pasos; para el primer paso hay dos resultados posibles, para el segundo hay cuatro resultados posibles, para el tercer paso hay cuatro cinco posibles y para el cuarto paso hay tres resultados. ¿Cuántos resultados distintos hay para el experimento completo?
+1. Un experimento consta de cuatro pasos; para el primer paso hay dos resultados posibles, para el segundo hay cuatro resultados posibles, para el tercer paso hay cuatro posibles y para el cuarto paso hay tres resultados. ¿Cuántos resultados distintos hay para el experimento completo?
 
-2. ¿De cuántas maneras es posible seleccionar tres objetos de un conjunto de siete? Use las letras A, B, C, D, E y F para identificar a los objetos y enumere todas las combinaciones diferentes de tres objetos.
+2. ¿De cuántas maneras es posible seleccionar tres objetos de un conjunto de siete? Use las letras A, B, C, D, E, F y G para identificar a los objetos y enumere todas las combinaciones diferentes de tres objetos.
 
-3. ¿Cuántas permutaciones de tres objetos se pueden seleccionar de un grupo de siete objetos? Use las letras A, B, C, D, E y F para identificar a los objetos y enumere cada una de las permutaciones factibles para los objetos B, D y F.
+3. ¿Cuántas permutaciones de tres objetos se pueden seleccionar de un grupo de siete objetos? Use las letras A, B, C, D, E, F y G para identificar a los objetos y enumere cada una de las permutaciones factibles para los objetos B, D y F.
 
 4. Un experimento que tiene tres resultados es repetido 60 veces y se ve que $E_1$  aparece 25 veces, $E_2$ 23 veces y $E_3$ 12 veces. Asigne probabilidades a los resultados. ¿Qué método empleó?
 
