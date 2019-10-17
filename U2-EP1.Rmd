@@ -40,8 +40,7 @@ a. ¿Cuál es la probabilidad de que un conductor lleve puesto el cinturón?
 b. ¿Cuál es la probabilidad de que se use el cinturón en las distintas regiones del país? ¿En qué región se usa más el cinturón?
 d. En la muestra, ¿qué proporción de los conductores provenía de cada región del país? ¿En qué región se seleccionaron más conductores? ¿Qué región viene en segundo lugar?
 
-9. Una asociación deportiva realiza un sondeo entre las personas mayores a 6 años respecto de su participación en actividades deportivas. El total de la población de estas edades fue 248.5 millones, de los cuales 120.9 millones eran hombres y
-127.6 millones mujeres. A continuación se presenta el número de participantes en los cinco deportes principales.
+9. Una asociación deportiva realiza un sondeo entre las personas mayores a 6 años respecto de su participación en actividades deportivas. A continuación se presenta el número de participantes en los cinco deportes principales.
 
 ```{r echo=FALSE}
 deportes <- read.table("datasets/024-deportes.txt", header = T)
@@ -69,7 +68,7 @@ c. Halle $A \cap B$ y $P(A \cap B)$.
 d. ¿Los eventos $A$ y $B$ son mutuamente excluyentes?
 e. Halle $B^c$ y $P(B^c)$
 
-11. En una encuesta en la pretemporada de futbol mexicano se preguntó: ¿Este año habrá un equipo del norte o de los «cuatro grandes» en la final de la liguilla? De los 13,429 interrogados, 2,961 dijeron que habría uno del norte, 4,494 señalaron que habría uno de los «cuatro grandes» y 6,823 expresaron que ni de uno ni otro grupo tendría un equipo en la final.
+11. En una encuesta en la pretemporada de futbol mexicano se preguntó: ¿Este año habrá un equipo del norte o de los «cuatro grandes» en la final de la liguilla? De los 14,278 interrogados, 2,961 dijeron que habría uno del norte, 4,494 señalaron que habría uno de los «cuatro grandes» y 6,823 expresaron que ni de uno ni otro grupo tendría un equipo en la final.
 
 a. ¿Cuál es la probabilidad de que el interrogado responda que ni el primero ni el segundo grupo tendrán un equipo en la final?
 
